@@ -1,0 +1,4 @@
+services:
+#    wyshynav_front.example:
+#        class: wyshy\navFrontBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]

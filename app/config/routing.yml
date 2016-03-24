@@ -1,0 +1,5 @@
+wyshynav_front:
+    resource: "@wyshynavFrontBundle/Resources/config/routing.yml"
+    prefix:   /
+
+
