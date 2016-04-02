@@ -3050,7 +3050,7 @@ class appDevDebugProjectContainer extends Container
         $instance->addPath('C:\\Users\\Mustapha\\Documents\\NetBeansProjects\\FTTWEB\\vendor\\symfony\\symfony\\src\\Symfony\\Bundle\\TwigBundle/Resources/views', 'Twig');
         $instance->addPath('C:\\Users\\Mustapha\\Documents\\NetBeansProjects\\FTTWEB\\vendor\\symfony\\swiftmailer-bundle\\Symfony\\Bundle\\SwiftmailerBundle/Resources/views', 'Swiftmailer');
         $instance->addPath('C:\\Users\\Mustapha\\Documents\\NetBeansProjects\\FTTWEB\\vendor\\doctrine\\doctrine-bundle\\Doctrine\\Bundle\\DoctrineBundle/Resources/views', 'Doctrine');
-        $instance->addPath('C:\\Users\\Mustapha\\Documents\\NetBeansProjects\\FTTWEB\\src\\wyshy\\navFrontOfficeBundle/Resources/views', 'wyshynavFrontOffice');
+        $instance->addPath('C:\\Users\\Mustapha\\Documents\\NetBeansProjects\\FTTWEB\\src\\wyshy\\navFrontBundle/Resources/views', 'wyshynavFront');
         $instance->addPath('C:\\Users\\Mustapha\\Documents\\NetBeansProjects\\FTTWEB\\src\\Acme\\DemoBundle/Resources/views', 'AcmeDemo');
         $instance->addPath('C:\\Users\\Mustapha\\Documents\\NetBeansProjects\\FTTWEB\\vendor\\symfony\\symfony\\src\\Symfony\\Bundle\\WebProfilerBundle/Resources/views', 'WebProfiler');
         $instance->addPath('C:\\Users\\Mustapha\\Documents\\NetBeansProjects\\FTTWEB\\vendor\\sensio\\distribution-bundle\\Sensio\\Bundle\\DistributionBundle/Resources/views', 'SensioDistribution');
@@ -3538,7 +3538,7 @@ class appDevDebugProjectContainer extends Container
                 'AsseticBundle' => 'Symfony\\Bundle\\AsseticBundle\\AsseticBundle',
                 'DoctrineBundle' => 'Doctrine\\Bundle\\DoctrineBundle\\DoctrineBundle',
                 'SensioFrameworkExtraBundle' => 'Sensio\\Bundle\\FrameworkExtraBundle\\SensioFrameworkExtraBundle',
-                'wyshynavFrontOfficeBundle' => 'wyshy\\navFrontOfficeBundle\\wyshynavFrontOfficeBundle',
+                'wyshynavFrontBundle' => 'wyshy\\navFrontBundle\\wyshynavFrontBundle',
                 'AcmeDemoBundle' => 'Acme\\DemoBundle\\AcmeDemoBundle',
                 'WebProfilerBundle' => 'Symfony\\Bundle\\WebProfilerBundle\\WebProfilerBundle',
                 'SensioDistributionBundle' => 'Sensio\\Bundle\\DistributionBundle\\SensioDistributionBundle',

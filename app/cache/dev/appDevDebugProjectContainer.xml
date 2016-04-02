@@ -16,7 +16,7 @@
       <parameter key="AsseticBundle">Symfony\Bundle\AsseticBundle\AsseticBundle</parameter>
       <parameter key="DoctrineBundle">Doctrine\Bundle\DoctrineBundle\DoctrineBundle</parameter>
       <parameter key="SensioFrameworkExtraBundle">Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle</parameter>
-      <parameter key="wyshynavFrontOfficeBundle">wyshy\navFrontOfficeBundle\wyshynavFrontOfficeBundle</parameter>
+      <parameter key="wyshynavFrontBundle">wyshy\navFrontBundle\wyshynavFrontBundle</parameter>
       <parameter key="AcmeDemoBundle">Acme\DemoBundle\AcmeDemoBundle</parameter>
       <parameter key="WebProfilerBundle">Symfony\Bundle\WebProfilerBundle\WebProfilerBundle</parameter>
       <parameter key="SensioDistributionBundle">Sensio\Bundle\DistributionBundle\SensioDistributionBundle</parameter>
@@ -2828,8 +2828,8 @@
         <argument>Doctrine</argument>
       </call>
       <call method="addPath">
-        <argument>C:\Users\Mustapha\Documents\NetBeansProjects\FTTWEB\src\wyshy\navFrontOfficeBundle/Resources/views</argument>
-        <argument>wyshynavFrontOffice</argument>
+        <argument>C:\Users\Mustapha\Documents\NetBeansProjects\FTTWEB\src\wyshy\navFrontBundle/Resources/views</argument>
+        <argument>wyshynavFront</argument>
       </call>
       <call method="addPath">
         <argument>C:\Users\Mustapha\Documents\NetBeansProjects\FTTWEB\src\Acme\DemoBundle/Resources/views</argument>

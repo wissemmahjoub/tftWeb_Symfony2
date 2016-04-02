@@ -1,0 +1,7 @@
+wyshyback_nav_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: wyshybackNavBundle:Default:index }
+wyshyback_nav_1:
+    path:     /
+    defaults: { _controller: wyshybackNavBundle:Nav:index }
+

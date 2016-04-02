@@ -1,0 +1,128 @@
+{# empty Twig template #}
+{% extends "wyshybackNavBundle::Layout.html.twig" %}
+
+    
+                {% block menu %}
+                     <li class=""> <a href="widgets.html"> <i class="fa fa-th"></i> <span class="title">Menu 1</span> </a> </li>
+        <li class=""> <a href="widgets.html"> <i class="fa fa-th"></i> <span class="title">Menu 2</span> </a> </li>
+        <li class=""> <a href="widgets.html"> <i class="fa fa-th"></i> <span class="title">Menu 3</span> </a> </li>
+        <li class=""> <a href="widgets.html"> <i class="fa fa-th"></i> <span class="title">Menu 4</span> </a> </li>
+        <li class=""> <a href="widgets.html"> <i class="fa fa-th"></i> <span class="title">Menu 5</span> </a> </li>
+        <li class=""> <a href="widgets.html"> <i class="fa fa-th"></i> <span class="title">Menu 6</span> <span class="label label-important pull-right ">HOT</span></a> </li>
+        
+                    {% endblock %}
+                    
+{% block content %}
+    <div class="grid simple">
+            <div class="grid-title no-border">
+              <h4>Condensed <span class="semi-bold">Layout</span></h4>
+              <div class="tools"> <a href="javascript:;" class="collapse"></a> <a href="#grid-config" data-toggle="modal" class="config"></a> <a href="javascript:;" class="reload"></a> <a href="javascript:;" class="remove"></a> </div>
+            </div>
+            <div class="grid-body no-border">
+			<form novalidate="novalidate" class="form-no-horizontal-spacing" id="form-condensed">	
+              <div class="row column-seperation">
+                <div class="col-md-6">
+                  <h4>Basic Information</h4>            
+                    <div class="row form-row">
+                      <div class="col-md-5">
+                        <input name="form3FirstName" id="form3FirstName" class="form-control" placeholder="First Name" type="text">
+                      </div>
+                      <div class="col-md-7">
+                        <input name="form3LastName" id="form3LastName" class="form-control" placeholder="Last Name" type="text">
+                      </div>
+                    </div>
+                    <div class="row form-row">
+                      <div class="col-md-5">
+                        <select tabindex="-1" name="form3Gender" id="form3Gender" class="select2 form-control select2-offscreen">
+                          <option value="1">Male</option>
+                          <option value="2">Female</option>
+                        </select>
+                      </div>
+                      <div class="col-md-7">
+                        <input placeholder="Date of Birth" class="form-control" id="form3DateOfBirth" name="form3DateOfBirth" type="text">
+                      </div>
+                    </div>
+                    <div class="row form-row">
+                      <div class="col-md-12">
+                        <input name="form3Occupation" id="form3Occupation" class="form-control" placeholder="Occupation" type="text">
+                      </div>
+                    </div>
+                    <div class="row form-row">
+                      <div class="col-md-8">
+                        <div class="radio">
+                          <input id="male" name="gender" value="male" checked="checked" type="radio">
+                          <label for="male">Male</label>
+                          <input id="female" name="gender" value="female" type="radio">
+                          <label for="female">Female</label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row form-row">
+                      <div class="col-md-12">
+                        <input name="form3Email" id="form3Email" class="form-control" placeholder="email@address.com" type="text">
+                      </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+				
+                  <h4>Postal Information</h4>
+                  
+                    <div class="row form-row">
+                      <div class="col-md-12">
+                        <input name="form3Address" id="form3Address" class="form-control" placeholder="Address" type="text">
+                      </div>
+                    </div>
+                    <div class="row form-row">
+                      <div class="col-md-6">
+                        <input name="form3City" id="form3City" class="form-control" placeholder="City" type="text">
+                      </div>
+                      <div class="col-md-6">
+                        <input name="form3State" id="form3State" class="form-control" placeholder="State" type="text">
+                      </div>
+                    </div>
+                    <div class="row form-row">
+                      <div class="col-md-8">
+                        <input name="form3Country" id="form3Country" class="form-control" placeholder="Country" type="text">
+                      </div>
+                      <div class="col-md-4">
+                        <input name="form3PostalCode" id="form3PostalCode" class="form-control" placeholder="Postal Code" type="text">
+                      </div>
+                    </div>
+                    <div class="row form-row">
+                      <div class="col-md-4">
+                        <input name="form3TeleCode" id="form3TeleCode" class="form-control" placeholder="+94" type="text">
+                      </div>
+                      <div class="col-md-8">
+                        <input name="form3TeleNo" id="form3TeleNo" class="form-control" placeholder="Phone Number" type="text">
+                      </div>
+                    </div>
+                    <div class="row small-text">
+					<p class="col-md-12">
+					NOTE - Facts to be considered, Simply remove or edit this as for what you desire. Disabled font Color and size
+					</p>
+					</div>
+             
+                </div>
+              </div>
+				<div class="form-actions">
+					<div class="pull-left">
+					  <div class="checkbox checkbox check-success 	">
+						<input value="1" id="chkTerms" type="checkbox">
+						<label for="chkTerms">I Here by agree on the Term and condition. </label>
+					  </div>
+					</div>
+					<div class="pull-right">
+					  <button class="btn btn-danger btn-cons" type="submit"><i class="icon-ok"></i> Save</button>
+					  <button class="btn btn-white btn-cons" type="button">Cancel</button>
+					</div>
+				  </div>
+			</form>
+            </div>
+          
+    </div>
+    {% endblock %}
+    
+            {% block userInfo %}
+                Personne 1
+                {% endblock %}
+                
