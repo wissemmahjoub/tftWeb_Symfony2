@@ -1,7 +1,36 @@
 wyshyback_nav_homepage:
     path:     /hello/{name}
     defaults: { _controller: wyshybackNavBundle:Default:index }
+    
 wyshyback_nav_1:
     path:     /
     defaults: { _controller: wyshybackNavBundle:Nav:index }
 
+wyshyback_nav_joueur:
+    path:     /joueur
+    defaults: { _controller: wyshybackNavBundle:Nav:joueur }
+    
+wyshyback_nav_ajouterjoueur:
+    path:     /ajouterjoueur
+    defaults: { _controller: wyshybackNavBundle:Nav:ajouterjoueur }
+    
+wyshyback_nav_modifierjoueur:
+    path:     /modifierjoueur/{idpersonne}
+    defaults: { _controller: wyshybackNavBundle:Joueur:modifierjoueur }
+    
+wyshyback_nav_supprimerjoueur:
+    path:     /supprimerjoueur/{idpersonne}
+    defaults: { _controller: wyshybackNavBundle:Joueur:supprimerjoueur }
+    
+wyshyback_nav_addjoueurtodb:
+    path:     /addplayer
+    defaults: { _controller: wyshybackNavBundle:Joueur:addjoueur }
+    
+wyshyback_nav_listerjoueurs:
+    path:     /listerjoueurs
+    defaults: { _controller: wyshybackNavBundle:Joueur:affichejoueurs }   
+    
+    
+    
+    
+    

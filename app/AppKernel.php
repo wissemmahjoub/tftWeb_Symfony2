@@ -18,6 +18,9 @@ class AppKernel extends Kernel
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new wyshy\navFrontBundle\wyshynavFrontBundle(),
             new wyshy\backNavBundle\wyshybackNavBundle(),
+             new FOS\UserBundle\FOSUserBundle(),
+
+            new wyshy\UserBundle\wyshyUserBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

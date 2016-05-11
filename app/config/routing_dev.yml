@@ -16,3 +16,7 @@ _main:
 # AcmeDemoBundle routes (to be removed)
 _acme_demo:
     resource: "@AcmeDemoBundle/Resources/config/routing.yml"
+    
+
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml" 

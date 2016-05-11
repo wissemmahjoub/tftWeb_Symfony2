@@ -1,0 +1,68 @@
+{% extends "wyshybackNavBundle::Layout.html.twig" %}
+
+{% block menu %}
+       <li class=""> <a href="{{ path('wyshyback_nav_addjoueurtodb') }}"> <i class="fa fa-th"></i> <span class="title">Ajouter un joueur</span> </a> </li>
+       <li class=""> <a href="{{ path('wyshyback_nav_listerjoueurs') }}"> <i class="fa fa-th"></i> <span class="title">Consulter les joueurs</span> </a> </li>
+        <li class=""> <a href="{{ path('wyshyback_nav_joueur') }}"> <i class="fa fa-th"></i> <span class="title">Menu 5</span> </a> </li>
+        <li class=""> <a href="{{ path('wyshyback_nav_joueur') }}"> <i class="fa fa-th"></i> <span class="title">Menu 6</span> <span class="label label-important pull-right ">HOT</span></a> </li>
+{% endblock %}
+
+{% block content %}
+<center>
+    <h1> Liste des joueurs </h1>
+
+   
+
+<div class="grid simple">
+    
+<div class="grid-title no-border">
+<div class="tools"> 
+    <a href="javascript:;" class="collapse"></a>  
+    <a href="javascript:;" class="remove"></a></div>
+</div>
+ 
+<div class="grid-body no-border">
+ 
+<div class="grid simple ">
+    <table class="table table-striped" id="example2" >
+                <thead>
+                  <tr>
+                    <th>Nom</th>
+                    <th>Prenom</th>
+                    <th>Email </th>
+                    <th>Sexe </th>
+                    <th>Niveau </th> 
+                    <th>Modifier </th>
+                    <th>Supprimer</th>
+                  </tr>
+                </thead>
+   {% for Personne in personnes %}
+                <tbody>
+                    <tr class="odd gradeX">
+                    <td> {{Personne.nom}}</td>
+                    <td> {{Personne.prenom}}</td>
+                    <td>{{Personne.email}} </td>
+                    <td class="center"> {{Personne.sexe}}</td>
+                    <td class="center">{{Personne.niveau}}</td>
+                   
+                  <td><a href="{{path('wyshyback_nav_modifierjoueur',{idpersonne:Personne.idpersonne})}}">Modifier</a></td>
+                  <td><a href="{{path('wyshyback_nav_supprimerjoueur',{idpersonne:Personne.idpersonne})}}">Supprimer</a></td>
+                 </tr>
+                </tbody>
+                   {% endfor %} 
+     </table>
+</div>    
+     
+      
+
+             
+		
+			
+ </div>
+</div>
+
+         
+    
+
+</center>
+ {% endblock %}

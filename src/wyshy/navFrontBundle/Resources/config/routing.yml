@@ -1,3 +1,12 @@
 wyshynav_front_homepage:
     path:     /hello/{name}
     defaults: { _controller: wyshynavFrontBundle:Default:index }
+
+wyshynav_front_home:
+    path:     /
+    defaults: { _controller: wyshynavFrontBundle:Default:index }
+
+wyshynav_front_login:
+    path:     /login
+    defaults: { _controller: wyshynavFrontBundle:Default:login }
+

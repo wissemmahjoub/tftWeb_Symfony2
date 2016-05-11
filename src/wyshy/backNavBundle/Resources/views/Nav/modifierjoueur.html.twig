@@ -1,0 +1,19 @@
+{% extends "wyshybackNavBundle::Layout.html.twig" %}
+
+{% block menu %}
+  <li class=""> <a href="{{ path('wyshyback_nav_addjoueurtodb') }}"> <i class="fa fa-th"></i> <span class="title">Ajouter un joueur</span> </a> </li>
+   
+       {# <li class=""> <a href="{{ path('wyshyback_nav_supprimerjoueur') }}"> <i class="fa fa-th"></i> <span class="title">Supprimer un joueur</span> </a> </li>
+   #}     <li class=""> <a href="{{ path('wyshyback_nav_listerjoueurs') }}"> <i class="fa fa-th"></i> <span class="title">Consulter les joueurs</span> </a> </li>
+        <li class=""> <a href="{{ path('wyshyback_nav_joueur') }}"> <i class="fa fa-th"></i> <span class="title">Menu 5</span> </a> </li>
+        <li class=""> <a href="{{ path('wyshyback_nav_joueur') }}"> <i class="fa fa-th"></i> <span class="title">Menu 6</span> <span class="label label-important pull-right ">HOT</span></a> </li>
+{% endblock %}
+
+{% block content %}
+    <h1> Modifier Joueur</h1>
+ <form method='POST' action="{{path('wyshyback_nav_modifierjoueur',{idpersonne:personne.idpersonne})}}" >
+        
+        {{ form_widget (form) }}
+        
+    </form>
+{% endblock %}

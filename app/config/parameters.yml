@@ -3,13 +3,13 @@ parameters:
     database_driver: pdo_mysql
     database_host: 127.0.0.1
     database_port: null
-    database_name: symfony
+    database_name: tft
     database_user: root
     database_password: null
-    mailer_transport: smtp
-    mailer_host: 127.0.0.1
-    mailer_user: null
-    mailer_password: null
+    mailer_transport: gmail
+    mailer_host: ~
+    mailer_user: federationdetennistunisie@gmail.com
+    mailer_password: yassine1994
     locale: en
     secret: ThisTokenIsNotSoSecretChangeIt
     debug_toolbar: true

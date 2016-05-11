@@ -1,0 +1,56 @@
+{# empty Twig template #}
+{% extends "wyshybackNavBundle::Layout.html.twig" %}
+
+    
+                {% block menu %}
+        <li class=""> <a href="{{ path('wyshyback_nav_addjoueurtodb') }}"> <i class="fa fa-th"></i> <span class="title">Ajouter un joueur</span> </a> </li>
+
+       <li class=""> <a href="{{ path('wyshyback_nav_listerjoueurs') }}"> <i class="fa fa-th"></i> <span class="title">Consulter les joueurs</span> </a> </li>   <li class=""> <a href="{{ path('wyshyback_nav_joueur') }}"> <i class="fa fa-th"></i> <span class="title">Menu 5</span> </a> </li>
+        <li class=""> <a href="{{ path('wyshyback_nav_joueur') }}"> <i class="fa fa-th"></i> <span class="title">Menu 6</span> <span class="label label-important pull-right ">HOT</span></a> </li>
+        
+                    {% endblock %}
+                    
+{% block content %}
+
+
+    <form method="POST">      
+ 
+    {{form_widget(form)}}
+   
+    </form>
+    
+       
+     
+    
+    <div class="grid simple">
+        
+         
+                  
+                   
+                  
+                    <div class="row form-row">
+                      <div class="col-md-8">
+                     {#   <div class="radio">
+                          <input id="male" name="gender" value="male" checked="checked" type="radio">
+                          <label for="male">Male</label>
+                          <input id="female" name="gender" value="female" type="radio">
+                          <label for="female">Female</label>
+                        </div>#}
+                      </div>
+                    </div>
+                    <div class="row form-row">
+                                            
+			<div class="pull-right">
+                           <a href="{{ path('wyshyback_nav_addjoueurtodb') }}"> <i class="fa fa-th"></i> <span class="title">Ajouter un joueur putin</span> </a> 
+                            <button class="btn btn-danger btn-cons" type="submit" onclick="location.href = {{ path('wyshyback_nav_addjoueurtodb') }}" ><i class="icon-ok"></i> Save</button>
+			 <button class="btn btn-white btn-cons" type="button">Cancel</button>
+			</div>
+                    </div>
+                </div>
+       
+    {% endblock %}
+    
+            {% block userInfo %}
+                Personne 1
+                {% endblock %}
+                

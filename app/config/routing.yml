@@ -1,10 +1,15 @@
+wyshy_user:
+    resource: "@wyshyUserBundle/Resources/config/routing.yml"
+    prefix:   /
+
 wyshyback_nav:
     resource: "@wyshybackNavBundle/Resources/config/routing.yml"
-    prefix:   /
+    prefix:   /back
 
 wyshynav_front:
     resource: "@wyshynavFrontBundle/Resources/config/routing.yml"
-    prefix:   /
+    prefix:   /front
 
 
-
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"
