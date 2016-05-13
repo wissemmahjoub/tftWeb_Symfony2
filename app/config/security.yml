@@ -5,7 +5,7 @@ services:
 
 security: 
     encoders:
-        FOS\UserBundle\Model\UserInterface: plaintext 
+        FOS\UserBundle\Model\UserInterface: sha512 
         
     role_hierarchy:
         ROLE_ADMIN: ROLE_USER
@@ -28,11 +28,30 @@ security:
                 csrf_provider: form.csrf_provider
                 success_handler: redirect.after.login
                 failure_path:   /front
+            
            
             logout:        
                 path:  /logout
                 target: /login
             anonymous:     true
+            
+            oauth:
+                failure_path: /login
+                login_path: /login
+                check_path: /connect_check
+                provider: fos_userbundle
+                resource_owners:
+                    facebook: "/login/check-facebook"
+                    google: "/login/check-google"
+                oauth_user_provider:
+                    service: app.provider.oauth
+                success_handler: redirect.after.login
+           
+                    
+            logout:       true
+            anonymous:    true
+
+            
          
     access_control:
         - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY } 

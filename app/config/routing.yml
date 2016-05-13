@@ -1,3 +1,8 @@
+
+homepage:
+    pattern:   /
+    defaults:  { _controller: FOSUserBundle:Security:login }
+    
 wyshy_user:
     resource: "@wyshyUserBundle/Resources/config/routing.yml"
     prefix:   /
@@ -13,3 +18,12 @@ wyshynav_front:
 
 fos_user:
     resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+    
+    
+hwi_oauth_redirect:
+    resource: "@HWIOAuthBundle/Resources/config/routing/redirect.xml"
+    prefix:   /connect
+ 
+hwi_oauth_login:
+    resource: "@HWIOAuthBundle/Resources/config/routing/login.xml"
+    prefix:   /log

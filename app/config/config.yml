@@ -1,6 +1,8 @@
 imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
+    - { resource: "@wyshyUserBundle/Resources/config/services.yml" }
+                    
 
 framework:
     #esi:             ~
@@ -83,3 +85,37 @@ fos_user:
 services:
     fos_user.doctrine_registry:
         alias: doctrine
+        
+hwi_oauth:
+    # name of the firewall in which this bundle is active, this setting MUST be set
+    firewall_name: main
+    connect:
+        account_connector: app.provider.oauth
+    http_client:
+         verify_peer: false
+    resource_owners:
+        facebook:
+            type:                facebook
+            client_id:           "473236139467922"
+            client_secret:       "4c167ff29e1f2893af46bb6c168f52ba"
+            scope:               "email, public_profile"
+            infos_url:           "https://graph.facebook.com/me?fields=id,name,email,picture.type(large)"
+            paths:
+                email: email
+            options:
+                display: page
+        google:
+            type:                google
+            client_id:           "818478430406-v68cotptt736b5e3bgqs9lcgkpoubtob.apps.googleusercontent.com"
+            client_secret:       "HE011JskSQsZwzJcTL_tHa4A"
+            scope:              "https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile"
+            paths:
+                email: email
+
+
+                
+                
+   
+                
+            
+                

@@ -6,8 +6,15 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class DefaultController extends Controller
 {
-    public function indexAction($name)
+    public function indexAction()
     {
-        return $this->render('wyshyUserBundle:Default:index.html.twig', array('name' => $name));
+        return $this->render('wyshyUserBundle:Default:index.html.twig', array());
+    }
+    
+    public function facebookRedirectionAction(){ 
+        
+        
+         
+         return $this->render('wyshyUserBundle:Default:index.html.twig', array('name' => $this->getUser().getFacebookID()));
     }
 }

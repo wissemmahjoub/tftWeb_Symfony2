@@ -44,14 +44,33 @@
             
             <section class="content-top-login">
                 <div class="container">
+                    
                        <div class="box-login">
                     
+                            <div class="box-login"> 
+                                  <a href="{{ path('hwi_oauth_service_redirect', {'service': 'facebook' }) }}">
+                                                      <i class="fa fa-facebook">acebook</i>
+                                                    </a>
+                                                    <a href="{{ path('hwi_oauth_service_redirect', {'service': 'google' }) }}">
+                                                        <i>Google</i>
+                                                    </a>
+                         </div>  
+                           
+                           
                            <div class="box-support"> </div>
                           {#  <p class="support-info"><i class="fa fa-envelope-o"></i> info@wttennis.com</p>#}
                              <div class="box-login"> 
                                     <a href class="text-purple bold"  data-toggle="modal" data-target="#myModal"> Login </a> 
                                     <a href='{{ path('fos_user_registration_register') }}' class="text-purple bold"  >Sign Up</a>
                                     </div>
+                                    
+                                    
+                                    
+                         {#Connexion GMAIL et FACEBOOK#}   
+                         
+                                                        
+                                                        
+                                                        
                         </div>
                       
 
@@ -112,7 +131,7 @@
                                                     {% block fos_user_content %}
                                                     {% endblock fos_user_content %}
                                                 </div>
-                                               
+                                                  
                                             </div>
                                                  
                                         </div>

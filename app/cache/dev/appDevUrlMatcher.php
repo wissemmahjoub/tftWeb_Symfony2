@@ -122,6 +122,28 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
         }
 
+        // homepage
+        if (rtrim($pathinfo, '/') === '') {
+            if (substr($pathinfo, -1) !== '/') {
+                return $this->redirect($pathinfo.'/', 'homepage');
+            }
+
+            return array (  '_controller' => 'FOS\\UserBundle\\Controller\\SecurityController::loginAction',  '_route' => 'homepage',);
+        }
+
+        if (0 === strpos($pathinfo, '/login')) {
+            // redirection_facebook
+            if ($pathinfo === '/login/check-facebook') {
+                return array (  '_controller' => 'wyshy\\UserBundle\\Controller\\DefaultController::facebookRedirectionAction',  '_route' => 'redirection_facebook',);
+            }
+
+            // path_to_index
+            if ($pathinfo === '/login/index') {
+                return array (  '_controller' => 'wyshy\\UserBundle\\Controller\\DefaultController::indexAction',  '_route' => 'path_to_index',);
+            }
+
+        }
+
         if (0 === strpos($pathinfo, '/back')) {
             // wyshyback_nav_homepage
             if (0 === strpos($pathinfo, '/back/hello') && preg_match('#^/back/hello/(?P<name>[^/]++)$#s', $pathinfo, $matches)) {
@@ -191,7 +213,21 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
         }
 
+        // hwi_oauth_service_redirect
+        if (0 === strpos($pathinfo, '/connect') && preg_match('#^/connect/(?P<service>[^/]++)$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'hwi_oauth_service_redirect')), array (  '_controller' => 'HWI\\Bundle\\OAuthBundle\\Controller\\ConnectController::redirectToServiceAction',));
+        }
+
         if (0 === strpos($pathinfo, '/log')) {
+            // hwi_oauth_connect
+            if (rtrim($pathinfo, '/') === '/log') {
+                if (substr($pathinfo, -1) !== '/') {
+                    return $this->redirect($pathinfo.'/', 'hwi_oauth_connect');
+                }
+
+                return array (  '_controller' => 'HWI\\Bundle\\OAuthBundle\\Controller\\ConnectController::connectAction',  '_route' => 'hwi_oauth_connect',);
+            }
+
             if (0 === strpos($pathinfo, '/login')) {
                 // fos_user_security_login
                 if ($pathinfo === '/login') {
