@@ -191,22 +191,22 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
             // tft_addMedecin
             if ($pathinfo === '/back/addMedecin') {
-                return array (  '_controller' => 'wyshybackNavBundle:Medecin:addMedecin',  '_route' => 'tft_addMedecin',);
+                return array (  '_controller' => 'wyshy\\backNavBundle\\Controller\\MedecinController::addMedecinAction',  '_route' => 'tft_addMedecin',);
             }
 
             // tft_listMedecin
             if ($pathinfo === '/back/listMedecin') {
-                return array (  '_controller' => 'wyshybackNavBundle:Medecin:afficheMedecin',  '_route' => 'tft_listMedecin',);
+                return array (  '_controller' => 'wyshy\\backNavBundle\\Controller\\MedecinController::afficheMedecinAction',  '_route' => 'tft_listMedecin',);
             }
 
             // tft_updateMedecin
             if (0 === strpos($pathinfo, '/back/updateMedecin') && preg_match('#^/back/updateMedecin/(?P<cin>[^/]++)$#s', $pathinfo, $matches)) {
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'tft_updateMedecin')), array (  '_controller' => 'wyshybackNavBundle:Medecin:ModifierMedecin',));
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'tft_updateMedecin')), array (  '_controller' => 'wyshy\\backNavBundle\\Controller\\MedecinController::ModifierMedecinAction',));
             }
 
             // tft_deleteMedecin
             if (0 === strpos($pathinfo, '/back/deleteMedecin') && preg_match('#^/back/deleteMedecin/(?P<cin>[^/]++)$#s', $pathinfo, $matches)) {
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'tft_deleteMedecin')), array (  '_controller' => 'wyshybackNavBundle:Medecin:deleteMedecin',));
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'tft_deleteMedecin')), array (  '_controller' => 'wyshy\\backNavBundle\\Controller\\MedecinController::deleteMedecinAction',));
             }
 
             if (0 === strpos($pathinfo, '/back/a')) {
