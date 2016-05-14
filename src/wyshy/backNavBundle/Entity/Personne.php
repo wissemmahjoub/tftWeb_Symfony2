@@ -216,12 +216,7 @@ class Personne
      */
     private $idcompetition;
 
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     *
-     * @ORM\ManyToMany(targetEntity="Test", mappedBy="idmedecin")
-     */
-    private $idtestCompterendu;
+   
 
     /**
      * @var \Doctrine\Common\Collections\Collection
@@ -348,9 +343,7 @@ class Personne
         return $this->idcompetition;
     }
 
-    function getIdtestCompterendu() {
-        return $this->idtestCompterendu;
-    }
+ 
 
     function getIdtestInvitation() {
         return $this->idtestInvitation;
@@ -464,9 +457,7 @@ class Personne
         $this->idcompetition = $idcompetition;
     }
 
-    function setIdtestCompterendu(\Doctrine\Common\Collections\Collection $idtestCompterendu) {
-        $this->idtestCompterendu = $idtestCompterendu;
-    }
+    
 
     function setIdtestInvitation(\Doctrine\Common\Collections\Collection $idtestInvitation) {
         $this->idtestInvitation = $idtestInvitation;
@@ -483,7 +474,6 @@ class Personne
     {
         $this->idticketAchat = new \Doctrine\Common\Collections\ArrayCollection();
         $this->idcompetition = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->idtestCompterendu = new \Doctrine\Common\Collections\ArrayCollection();
         $this->idtestInvitation = new \Doctrine\Common\Collections\ArrayCollection();
         $this->idticket = new \Doctrine\Common\Collections\ArrayCollection();
     }

@@ -63,5 +63,64 @@ class Evenement
      */
     private $datedestruction;
 
+    
+    
+    function getIdevenement() {
+        return $this->idevenement;
+    }
+
+    function getVideo() {
+        return $this->video;
+    }
+
+    function getLibelle() {
+        return $this->libelle;
+    }
+
+    function getLieu() {
+        return $this->lieu;
+    }
+
+    function getDatedebut() {
+        return $this->datedebut;
+    }
+
+    function getDatefin() {
+        return $this->datefin;
+    }
+
+    function getDatedestruction() {
+        return $this->datedestruction;
+    }
+
+    function setIdevenement($idevenement) {
+        $this->idevenement = $idevenement;
+    }
+
+    function setVideo($video) {
+        $this->video = $video;
+    }
+
+    function setLibelle($libelle) {
+        $this->libelle = $libelle;
+    }
+
+    function setLieu($lieu) {
+        $this->lieu = $lieu;
+    }
+
+    function setDatedebut(\DateTime $datedebut) {
+        $this->datedebut = $datedebut;
+    }
+
+    function setDatefin(\DateTime $datefin) {
+        $this->datefin = $datefin;
+    }
+
+    function setDatedestruction(\DateTime $datedestruction) {
+        $this->datedestruction = $datedestruction;
+    }
+
+
 
 }

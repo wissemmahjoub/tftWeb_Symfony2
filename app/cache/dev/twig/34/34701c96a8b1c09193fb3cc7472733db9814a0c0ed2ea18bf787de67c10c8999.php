@@ -326,7 +326,7 @@ class __TwigTemplate_e171d0cecb43b95a0ba7238cf350248d6be99273212bf432857ee1bad79
         // line 54
         echo $this->env->getExtension('routing')->getPath("hwi_oauth_service_redirect", array("service" => "google"));
         echo "\">
-                                                        <i>+Google</i>
+                                                        <i>Google</i>
                                                     </a>
                          </div>  
                            
@@ -1192,7 +1192,7 @@ class __TwigTemplate_e171d0cecb43b95a0ba7238cf350248d6be99273212bf432857ee1bad79
 /*                                                       <i class="fa fa-facebook">acebook</i>*/
 /*                                                     </a>*/
 /*                                                     <a href="{{ path('hwi_oauth_service_redirect', {'service': 'google' }) }}">*/
-/*                                                         <i>+Google</i>*/
+/*                                                         <i>Google</i>*/
 /*                                                     </a>*/
 /*                          </div>  */
 /*                            */

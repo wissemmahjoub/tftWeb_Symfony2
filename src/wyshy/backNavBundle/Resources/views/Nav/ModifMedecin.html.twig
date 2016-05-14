@@ -1,0 +1,17 @@
+{% extends "wyshybackNavBundle::Layout.html.twig" %}
+
+{% block menu %}
+        <li class=""> <a href="{{path('tft_addMedecin')}}"> <i class="fa fa-th"></i> <span class="title">Ajouter Medecin</span> </a> </li>
+        <li class="">  <a href="{{path('tft_listMedecin')}}"><i class="fa fa-th"></i> <span class="title">Liste Les Medecins</span> </a> </li> 
+{% endblock %}
+
+{% block content %}
+    <center>
+    <h1> Modifier Medecin</h1>
+ <form method='POST' action="{{path('tft_updateMedecin',{cin:Medecin.cin})}}" >
+        
+        {{ form_widget (form) }}
+        
+    </form>
+    </center>
+{% endblock %}

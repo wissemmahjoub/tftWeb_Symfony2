@@ -1,0 +1,62 @@
+{% extends "wyshybackNavBundle::Layout.html.twig" %}
+
+{% block content %}
+<center>
+
+
+<h1 class="light">Formulaire d'ajout <span class="semi-bold">Evenement</span></h1>
+        
+
+
+
+ <div class="center col-lg-17">
+              <div class="grid simple">
+                <div class="grid-title no-border">
+                  <div class="tools"> <a href="javascript:;" class="collapse"></a> <a href="#grid-config" data-toggle="modal" class="config"></a> <a href="javascript:;" class="reload"></a> <a href="javascript:;" class="remove"></a> </div>
+                </div>
+                <div class="grid-body no-border"> <br>
+                  
+		<form method="POST" >
+                      <div class="form-group">
+                        <label class="form-label">Libelle </label>
+				<div class="input-with-icon  right">                                       
+				<i class=""></i>
+                                {{form_widget(form.libelle)}}
+				</div>
+                      </div>
+                      <div class="form-group">
+                        <label class="form-label">Lieu</label>
+			<div class="input-with-icon  right">                                       
+			<i class=""></i>
+				{{form_widget(form.lieu)}}                              
+			</div>
+                      </div>
+                      <div class="form-group">
+                        <label class="form-label">Date de debut</label>
+						<div class="input-with-icon  right">                                       
+							<i class=""></i>
+                                                       {{form_widget(form.datedebut)}}
+                                                </div>
+                      </div>
+                                                
+                                                 <div class="form-group">
+                        <label class="form-label">Date de Fin</label>
+						<div class="input-with-icon  right">                                       
+							<i class=""></i>
+                                                       {{form_widget(form.datefin)}}
+                                                </div>
+                      </div>
+
+				  <div class="form-actions">  
+					<div class="center">
+                                             {{form_rest(form)}}
+                                            <button type="cancel" class="btn btn-white btn-cons">Cancel</button>
+					</div>
+					</div>
+				</form>
+                </div>
+              </div>
+            </div>
+            </center>
+            </html>
+ {% endblock %}

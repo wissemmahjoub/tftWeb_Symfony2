@@ -189,6 +189,131 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
                 return array (  '_controller' => 'wyshy\\backNavBundle\\Controller\\JoueurController::affichejoueursAction',  '_route' => 'wyshyback_nav_listerjoueurs',);
             }
 
+            // tft_addMedecin
+            if ($pathinfo === '/back/addMedecin') {
+                return array (  '_controller' => 'wyshybackNavBundle:Medecin:addMedecin',  '_route' => 'tft_addMedecin',);
+            }
+
+            // tft_listMedecin
+            if ($pathinfo === '/back/listMedecin') {
+                return array (  '_controller' => 'wyshybackNavBundle:Medecin:afficheMedecin',  '_route' => 'tft_listMedecin',);
+            }
+
+            // tft_updateMedecin
+            if (0 === strpos($pathinfo, '/back/updateMedecin') && preg_match('#^/back/updateMedecin/(?P<cin>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'tft_updateMedecin')), array (  '_controller' => 'wyshybackNavBundle:Medecin:ModifierMedecin',));
+            }
+
+            // tft_deleteMedecin
+            if (0 === strpos($pathinfo, '/back/deleteMedecin') && preg_match('#^/back/deleteMedecin/(?P<cin>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'tft_deleteMedecin')), array (  '_controller' => 'wyshybackNavBundle:Medecin:deleteMedecin',));
+            }
+
+            if (0 === strpos($pathinfo, '/back/a')) {
+                // tft_ajoutEvent
+                if ($pathinfo === '/back/ajoutEvent') {
+                    return array (  '_controller' => 'wyshy\\backNavBundle\\Controller\\EvenementController::ajoutEventAction',  '_route' => 'tft_ajoutEvent',);
+                }
+
+                // tft_affEvent
+                if ($pathinfo === '/back/affEvent') {
+                    return array (  '_controller' => 'wyshy\\backNavBundle\\Controller\\EvenementController::afficheEventAction',  '_route' => 'tft_affEvent',);
+                }
+
+            }
+
+            // tft_modifEvent
+            if (0 === strpos($pathinfo, '/back/modifEvent') && preg_match('#^/back/modifEvent/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'tft_modifEvent')), array (  '_controller' => 'wyshy\\backNavBundle\\Controller\\EvenementController::ModifierEventAction',));
+            }
+
+            // tft_deleteEvent
+            if (0 === strpos($pathinfo, '/back/suppEvent') && preg_match('#^/back/suppEvent/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'tft_deleteEvent')), array (  '_controller' => 'wyshy\\backNavBundle\\Controller\\EvenementController::deleteEventAction',));
+            }
+
+            if (0 === strpos($pathinfo, '/back/a')) {
+                if (0 === strpos($pathinfo, '/back/add')) {
+                    if (0 === strpos($pathinfo, '/back/addCompteM')) {
+                        // tft_ajoutCompte
+                        if ($pathinfo === '/back/addCompteMed') {
+                            return array (  '_controller' => 'wyshy\\backNavBundle\\Controller\\CompteRenduController::ajoutCompteAction',  '_route' => 'tft_ajoutCompte',);
+                        }
+
+                        // tft_ajoutCompteMatch
+                        if ($pathinfo === '/back/addCompteMatch') {
+                            return array (  '_controller' => 'wyshy\\backNavBundle\\Controller\\CompteRenduMatchController::ajoutAction',  '_route' => 'tft_ajoutCompteMatch',);
+                        }
+
+                    }
+
+                    // tft_ajoutActu
+                    if ($pathinfo === '/back/addActu') {
+                        return array (  '_controller' => 'wyshy\\backNavBundle\\Controller\\ActualiteController::ajouterAction',  '_route' => 'tft_ajoutActu',);
+                    }
+
+                }
+
+                // tft_affActu
+                if ($pathinfo === '/back/affActu') {
+                    return array (  '_controller' => 'wyshy\\backNavBundle\\Controller\\ActualiteController::afficheActualiteAction',  '_route' => 'tft_affActu',);
+                }
+
+            }
+
+            // tft_modifactu
+            if (0 === strpos($pathinfo, '/back/modifActu') && preg_match('#^/back/modifActu/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'tft_modifactu')), array (  '_controller' => 'wyshy\\backNavBundle\\Controller\\ActualiteController::ModifierActuAction',));
+            }
+
+            // tft_deleteactu
+            if (0 === strpos($pathinfo, '/back/suppactu') && preg_match('#^/back/suppactu/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'tft_deleteactu')), array (  '_controller' => 'wyshy\\backNavBundle\\Controller\\ActualiteController::deleteActuAction',));
+            }
+
+            // tft_affcompte
+            if ($pathinfo === '/back/affcompte') {
+                return array (  '_controller' => 'wyshy\\backNavBundle\\Controller\\CompteRenduController::afficheAction',  '_route' => 'tft_affcompte',);
+            }
+
+            // tft_suppcompte
+            if (0 === strpos($pathinfo, '/back/suppcompte') && preg_match('#^/back/suppcompte/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'tft_suppcompte')), array (  '_controller' => 'wyshy\\backNavBundle\\Controller\\CompteRenduController::deleteAction',));
+            }
+
+            if (0 === strpos($pathinfo, '/back/a')) {
+                // tft_ajoutVid
+                if ($pathinfo === '/back/addVid') {
+                    return array (  '_controller' => 'wyshy\\backNavBundle\\Controller\\VideoController::ajoutVideoAction',  '_route' => 'tft_ajoutVid',);
+                }
+
+                // tft_affVideo
+                if ($pathinfo === '/back/affVid') {
+                    return array (  '_controller' => 'wyshy\\backNavBundle\\Controller\\VideoController::afficherVideoAction',  '_route' => 'tft_affVideo',);
+                }
+
+            }
+
+            // tft_modifVideo
+            if (0 === strpos($pathinfo, '/back/modifVideo') && preg_match('#^/back/modifVideo/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'tft_modifVideo')), array (  '_controller' => 'wyshy\\backNavBundle\\Controller\\VideoController::ModifierVideoAction',));
+            }
+
+            // tft_affActuFront
+            if ($pathinfo === '/back/affActufront') {
+                return array (  '_controller' => 'wyshy\\backNavBundle\\Controller\\ActualiteController::afficheactufrontAction',  '_route' => 'tft_affActuFront',);
+            }
+
+            // tft_suppVideo
+            if (0 === strpos($pathinfo, '/back/suppVid') && preg_match('#^/back/suppVid/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'tft_suppVideo')), array (  '_controller' => 'wyshy\\backNavBundle\\Controller\\VideoController::deleteVideoAction',));
+            }
+
+            // tft_DetailsActu
+            if (0 === strpos($pathinfo, '/back/detailActu') && preg_match('#^/back/detailActu/(?P<idactualite>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'tft_DetailsActu')), array (  '_controller' => 'wyshy\\backNavBundle\\Controller\\ActualiteController::detailActuAction',));
+            }
+
         }
 
         if (0 === strpos($pathinfo, '/front')) {

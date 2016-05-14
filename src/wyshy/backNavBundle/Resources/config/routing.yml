@@ -30,7 +30,100 @@ wyshyback_nav_listerjoueurs:
     path:     /listerjoueurs
     defaults: { _controller: wyshybackNavBundle:Joueur:affichejoueurs }   
     
+#    Debut Routing Chams    
+    
+tft_addMedecin:
+    path:     /addMedecin
+    defaults: { _controller: wyshybackNavBundle:Medecin:addMedecin }
+
+
+tft_listMedecin:
+    path:     /listMedecin
+    defaults: { _controller: wyshybackNavBundle:Medecin:afficheMedecin }
+    
+tft_updateMedecin:
+    path:     /updateMedecin/{cin}
+    defaults: { _controller: wyshybackNavBundle:Medecin:ModifierMedecin }
+    
+tft_deleteMedecin:
+    path:     /deleteMedecin/{cin}
+    defaults: { _controller: wyshybackNavBundle:Medecin:deleteMedecin }
+    
+tft_ajoutEvent:
+    path:     /ajoutEvent
+    defaults: { _controller: wyshybackNavBundle:Evenement:ajoutEvent }
+    
+tft_affEvent:
+    path:     /affEvent
+    defaults: { _controller: wyshybackNavBundle:Evenement:afficheEvent }
+    
+tft_modifEvent:
+    path:     /modifEvent/{id}
+    defaults: { _controller: wyshybackNavBundle:Evenement:ModifierEvent }
     
     
+tft_deleteEvent:
+    path:     /suppEvent/{id}
+    defaults: { _controller: wyshybackNavBundle:Evenement:deleteEvent }
+    
+tft_ajoutCompte:
+    path:     /addCompteMed
+    defaults: { _controller: wyshybackNavBundle:CompteRendu:ajoutCompte }
+    
+tft_ajoutCompteMatch:
+    path:     /addCompteMatch
+    defaults: { _controller: wyshybackNavBundle:CompteRenduMatch:ajout }
+    
+tft_ajoutActu:
+    path:     /addActu
+    defaults: { _controller: wyshybackNavBundle:Actualite:ajouter }
+    
+tft_affActu:
+    path:     /affActu
+    defaults: { _controller: wyshybackNavBundle:Actualite:afficheActualite }
+
+    
+tft_modifactu:
+    path:     /modifActu/{id}
+    defaults: { _controller: wyshybackNavBundle:Actualite:ModifierActu }    
+    
+tft_deleteactu:
+    path:     /suppactu/{id}
+    defaults: { _controller: wyshybackNavBundle:Actualite:deleteActu }
+    
+tft_affcompte:
+    path:     /affcompte
+    defaults: { _controller: wyshybackNavBundle:CompteRendu:affiche }
+    
+tft_suppcompte:
+    path:     /suppcompte/{id}
+    defaults: { _controller: wyshybackNavBundle:CompteRendu:delete }
+
+
+tft_ajoutVid:
+    path:     /addVid
+    defaults: { _controller: wyshybackNavBundle:Video:ajoutVideo }
+    
+tft_affVideo:
+    path:     /affVid
+    defaults: { _controller: wyshybackNavBundle:Video:afficherVideo }    
+    
+tft_modifVideo:
+    path:     /modifVideo/{id}
+    defaults: { _controller: wyshybackNavBundle:Video:ModifierVideo }    
+
+tft_affActuFront:
+    path:     /affActufront
+    defaults: { _controller: wyshybackNavBundle:Actualite:afficheactufront }
     
     
+tft_suppVideo:
+    path:     /suppVid/{id}
+    defaults: { _controller: wyshybackNavBundle:Video:deleteVideo }    
+    
+tft_DetailsActu:
+    path:     /detailActu/{idactualite}
+    defaults: { _controller: wyshybackNavBundle:Actualite:detailActu }
+    
+       
+#    Fin Routing Chams    

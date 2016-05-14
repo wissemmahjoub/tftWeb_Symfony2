@@ -35,20 +35,7 @@ class Test
      */
     private $datetest;
 
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     *
-     * @ORM\ManyToMany(targetEntity="Personne", inversedBy="idtestCompterendu")
-     * @ORM\JoinTable(name="compterendu_test",
-     *   joinColumns={
-     *     @ORM\JoinColumn(name="idtest_compterendu", referencedColumnName="idtest")
-     *   },
-     *   inverseJoinColumns={
-     *     @ORM\JoinColumn(name="idmedecin", referencedColumnName="idpersonne")
-     *   }
-     * )
-     */
-    private $idmedecin;
+    
 
     /**
      * @var \Doctrine\Common\Collections\Collection
@@ -70,8 +57,45 @@ class Test
      */
     public function __construct()
     {
-        $this->idmedecin = new \Doctrine\Common\Collections\ArrayCollection();
         $this->idjoueur = new \Doctrine\Common\Collections\ArrayCollection();
     }
+    
+     function getIdtest() {
+        return $this->idtest;
+    }
 
+    function getLibelletest() {
+        return $this->libelletest;
+    }
+
+    function getDatetest() {
+        return $this->datetest;
+    }
+
+    function getIdjoueur() {
+        return $this->idjoueur;
+    }
+
+    function setIdtest($idtest) {
+        $this->idtest = $idtest;
+    }
+
+    function setLibelletest($libelletest) {
+        $this->libelletest = $libelletest;
+    }
+
+    function setDatetest(\DateTime $datetest) {
+        $this->datetest = $datetest;
+    }
+
+    function setIdjoueur(\Doctrine\Common\Collections\Collection $idjoueur) {
+        $this->idjoueur = $idjoueur;
+    }
+
+    public function __toString()
+{
+    return $this->libelletest;
+}
+    
+    
 }

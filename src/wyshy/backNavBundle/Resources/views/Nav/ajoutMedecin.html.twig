@@ -1,0 +1,84 @@
+{% extends "wyshybackNavBundle::Layout.html.twig" %}
+{% block menu %}
+ 
+         <li class=""> <a href="javascript:;"> <i class="icon-custom-extra"></i> <span class="title">Medecin</span> <span class="arrow "></span> </a>
+          <ul class="sub-menu">
+            <li > <a href="{{path('tft_addMedecin')}}"> Ajouter </a> </li>
+            <li > <a href="{{path('tft_listMedecin')}}"> Afficher </a> </li>
+
+          </ul>
+        </li>
+{% endblock %}
+{% block content %}
+<br><br><center>
+
+<br>
+     
+ <fieldset  style="width:500px;">
+<legend ><h1>Ajout Medecin </h1></legend>
+        
+<form method="POST">
+     <table>
+<tr>
+        <td>Nom </td>
+        <td>{{form_widget(form.nom)}}</td>
+</tr> 
+<tr>
+        <td>Prenom  </td>
+        <td>{{form_widget(form.prenom)}}</td>
+</tr>        
+<tr>
+        <td>Cin   </td>
+        <td>{{form_widget(form.cin)}}</td>
+</tr>
+
+ <tr>
+        <td>Login  </td>
+        <td>{{form_widget(form.login)}}</td>
+ </tr>
+ 
+  <tr>
+        <td>Password  </td>
+        <td>{{form_widget(form.password)}}</td>
+ </tr>
+ 
+ <tr>
+        <td>Specialite </td>
+        <td>{{form_widget(form.specialite)}}</td>
+ </tr>
+ 
+ 
+   <tr>
+        <td>Salaire </td>
+        <td>{{form_widget(form.salaire)}}</td>
+ </tr>
+
+  <tr>
+        <td>Date de Naissance </td>
+        <td>{{form_widget(form.datenaissance)}}</td>
+ </tr>
+ 
+  <tr>
+        <td>Sexe </td>
+        <td>{{form_widget(form.sexe)}}</td>
+ </tr>
+ 
+  <tr>
+        <td>Email </td>
+        <td>{{form_widget(form.email)}}</td>
+ </tr>
+ 
+  <tr>
+        <td>Adresse </td>
+        <td>{{form_widget(form.adresse)}}</td>
+ </tr>
+  
+    </table>
+ {{form_rest(form)}} 
+
+</form>
+    </fieldset>
+<br>
+  
+</center>
+ {% endblock %}
