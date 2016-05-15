@@ -84,6 +84,14 @@ class VideoController extends Controller {
         $em->flush();
         return $this->redirect($this->generateUrl("tft_affVideo"));
     }
+    
+     public function afficherVideoFrontAction()
+    {
+       $em=$this->getDoctrine()->getManager();
+      $vids =$em->getRepository("wyshybackNavBundle:Video")->findAll();
+       return $this->render('wyshynavFrontBundle:Default:vidFront.html.twig',array('vids'=>$vids));
+       
+    }
  
     
     

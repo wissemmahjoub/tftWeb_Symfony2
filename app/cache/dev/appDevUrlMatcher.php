@@ -314,6 +314,11 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
                 return $this->mergeDefaults(array_replace($matches, array('_route' => 'tft_DetailsActu')), array (  '_controller' => 'wyshy\\backNavBundle\\Controller\\ActualiteController::detailActuAction',));
             }
 
+            // tft_affVidFront
+            if ($pathinfo === '/back/affVidfront') {
+                return array (  '_controller' => 'wyshy\\backNavBundle\\Controller\\VideoController::afficherVideoFrontAction',  '_route' => 'tft_affVidFront',);
+            }
+
             // wyshyback_maptft
             if ($pathinfo === '/back/maptft') {
                 return array (  '_controller' => 'wyshy\\backNavBundle\\Controller\\DefaultController::tftmapAction',  '_route' => 'wyshyback_maptft',);

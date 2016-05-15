@@ -125,6 +125,10 @@ tft_DetailsActu:
     path:     /detailActu/{idactualite}
     defaults: { _controller: wyshybackNavBundle:Actualite:detailActu }
     
+tft_affVidFront:
+    path:     /affVidfront
+    defaults: { _controller: wyshybackNavBundle:Video:afficherVideoFront }    
+    
        
 #    Fin Routing Chams    
 
