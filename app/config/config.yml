@@ -112,7 +112,20 @@ hwi_oauth:
             paths:
                 email: email
 
+# Nomaya Configuration
 
+nomaya_social:
+    buttons:
+        facebook:           
+            url:            "http://www.facebook.com/TFTesprit"
+            locale:         "fr_FR"
+            send:           false
+            width:          300
+            showFaces:      false
+            layout:         "button_count"
+    links: 
+        facebook:           "http://www.facebook.com/TFTesprit"
+        googleplus:         "https://plus.google.com/u/0/117059753051722952402"
                 
                 
    

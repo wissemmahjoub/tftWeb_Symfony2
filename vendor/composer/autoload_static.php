@@ -143,6 +143,13 @@ class ComposerStaticInit69bf85b7432aaf948993b561097a7f93
                 0 => __DIR__ . '/..' . '/psr/log',
             ),
         ),
+        'N' => 
+        array (
+            'Nomaya\\SocialBundle\\' => 
+            array (
+                0 => __DIR__ . '/..' . '/nomaya/social-bundle',
+            ),
+        ),
         'D' => 
         array (
             'Doctrine\\ORM\\' => 
