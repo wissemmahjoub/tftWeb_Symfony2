@@ -21,7 +21,7 @@ class AppKernel extends Kernel
             new FOS\UserBundle\FOSUserBundle(),
             new wyshy\UserBundle\wyshyUserBundle(),
             new HWI\Bundle\OAuthBundle\HWIOAuthBundle(),
-            new Nomaya\SocialBundle\NomayaSocialBundle(),
+          
 
            
         );

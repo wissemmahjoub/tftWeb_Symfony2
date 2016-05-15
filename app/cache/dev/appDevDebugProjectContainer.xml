@@ -21,7 +21,6 @@
       <parameter key="FOSUserBundle">FOS\UserBundle\FOSUserBundle</parameter>
       <parameter key="wyshyUserBundle">wyshy\UserBundle\wyshyUserBundle</parameter>
       <parameter key="HWIOAuthBundle">HWI\Bundle\OAuthBundle\HWIOAuthBundle</parameter>
-      <parameter key="NomayaSocialBundle">Nomaya\SocialBundle\NomayaSocialBundle</parameter>
       <parameter key="AcmeDemoBundle">Acme\DemoBundle\AcmeDemoBundle</parameter>
       <parameter key="WebProfilerBundle">Symfony\Bundle\WebProfilerBundle\WebProfilerBundle</parameter>
       <parameter key="SensioDistributionBundle">Sensio\Bundle\DistributionBundle\SensioDistributionBundle</parameter>
@@ -725,26 +724,6 @@
     <parameter key="hwi_oauth.connect">true</parameter>
     <parameter key="hwi_oauth.connect.confirmation">true</parameter>
     <parameter key="hwi_oauth.templating.engine">twig</parameter>
-    <parameter key="buttons.facebook" type="collection">
-      <parameter key="url">http://www.facebook.com/TFTesprit</parameter>
-      <parameter key="locale">fr_FR</parameter>
-      <parameter key="send">false</parameter>
-      <parameter key="width">300</parameter>
-      <parameter key="showFaces">false</parameter>
-      <parameter key="layout">button_count</parameter>
-      <parameter key="share">true</parameter>
-    </parameter>
-    <parameter key="links.facebook" type="collection">
-      <parameter key="network">facebook</parameter>
-      <parameter key="url">http://www.facebook.com/TFTesprit</parameter>
-      <parameter key="theme">default</parameter>
-    </parameter>
-    <parameter key="links.googleplus" type="collection">
-      <parameter key="network">googleplus</parameter>
-      <parameter key="url">https://plus.google.com/u/0/117059753051722952402</parameter>
-      <parameter key="theme">default</parameter>
-    </parameter>
-    <parameter key="social.theme">default</parameter>
     <parameter key="web_profiler.controller.profiler.class">Symfony\Bundle\WebProfilerBundle\Controller\ProfilerController</parameter>
     <parameter key="web_profiler.controller.router.class">Symfony\Bundle\WebProfilerBundle\Controller\RouterController</parameter>
     <parameter key="web_profiler.controller.exception.class">Symfony\Bundle\WebProfilerBundle\Controller\ExceptionController</parameter>
@@ -1976,7 +1955,7 @@
         </argument>
         <argument type="service">
           <service class="Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider" public="false">
-            <argument>5737f8d8031d7</argument>
+            <argument>5738253faceda</argument>
           </service>
         </argument>
       </argument>
@@ -2298,7 +2277,7 @@
         <argument type="service">
           <service class="Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener" public="false">
             <argument type="service" id="security.context"/>
-            <argument>5737f8d8031d7</argument>
+            <argument>5738253faceda</argument>
             <argument type="service" id="monolog.logger.security" on-invalid="null"/>
           </service>
         </argument>
@@ -2562,12 +2541,6 @@
             <argument type="service" id="hwi_oauth.templating.helper.oauth"/>
           </service>
         </argument>
-      </call>
-      <call method="addExtension">
-        <argument type="service" id="twig.extension.nomaya_social_bar"/>
-      </call>
-      <call method="addExtension">
-        <argument type="service" id="twig.extension.nomaya_social_links"/>
       </call>
       <call method="addExtension">
         <argument type="service" id="twig.extension.acme.demo"/>
@@ -3108,27 +3081,6 @@
       <argument>google</argument>
       <argument type="service" id="hwi_oauth.storage.session"/>
     </service>
-    <service id="nomaya.socialbarhelper" class="Nomaya\SocialBundle\Helpers\SocialBarHelper">
-      <tag name="templating.helper" alias="social-buttons"/>
-      <argument type="service" id="templating"/>
-    </service>
-    <service id="twig.extension.nomaya_social_bar" class="Nomaya\SocialBundle\Twig\Extension\NomayaTwigSocialBar">
-      <tag name="twig.extension"/>
-      <argument type="service" id="service_container"/>
-      <call method="setNetworks">
-        <argument type="collection">
-          <argument>facebook</argument>
-        </argument>
-      </call>
-    </service>
-    <service id="nomaya.sociallinkshelper" class="Nomaya\SocialBundle\Helpers\SocialLinksHelper">
-      <tag name="templating.helper" alias="social-links"/>
-      <argument type="service" id="templating"/>
-    </service>
-    <service id="twig.extension.nomaya_social_links" class="Nomaya\SocialBundle\Twig\Extension\NomayaTwigSocialLinks">
-      <tag name="twig.extension"/>
-      <argument type="service" id="service_container"/>
-    </service>
     <service id="twig.extension.acme.demo" class="Acme\DemoBundle\Twig\Extension\DemoExtension" public="false">
       <tag name="twig.extension"/>
       <argument type="service" id="twig.loader"/>
@@ -3404,8 +3356,6 @@
           <argument key="security">templating.helper.security</argument>
           <argument key="assetic">assetic.helper.dynamic</argument>
           <argument key="oauth">hwi_oauth.templating.helper.oauth</argument>
-          <argument key="social-buttons">nomaya.socialbarhelper</argument>
-          <argument key="social-links">nomaya.sociallinkshelper</argument>
         </argument>
       </call>
     </service>
@@ -3498,10 +3448,6 @@
       <call method="addPath">
         <argument>C:\wamp\www\tftweb\vendor\hwi\oauth-bundle/Resources/views</argument>
         <argument>HWIOAuth</argument>
-      </call>
-      <call method="addPath">
-        <argument>C:\wamp\www\tftweb\vendor\nomaya\social-bundle\Nomaya\SocialBundle/Resources/views</argument>
-        <argument>NomayaSocial</argument>
       </call>
       <call method="addPath">
         <argument>C:\wamp\www\tftweb\src\Acme\DemoBundle/Resources/views</argument>
