@@ -1,0 +1,74 @@
+
+{% extends "wyshybackNavBundle::Layout.html.twig" %}
+
+{% block menu %}
+        <li class=""> <a href="javascript:;"> <i class="fa fa-user"></i> <span class="title">Membres</span> <span class="arrow "></span> </a>
+          <ul class="sub-menu">
+            <li > <a href="{{path('tft_ListerMembres')}}"> Lister </a> </li>
+ 
+          </ul>
+        </li>
+      
+{% endblock %}
+
+{% block content %}
+<center>
+
+<div class="grid simple">
+    
+<div class="grid-title no-border">
+              <h4>Liste <span class="semi-bold"> des Membres</span></h4>
+              <div class="tools"> <a href="javascript:;" class="collapse"></a> <a href="#grid-config" data-toggle="modal" class="config"></a> <a href="javascript:;" class="reload"></a> <a href="javascript:;" class="remove"></a> </div>
+            </div>
+ 
+<div class="grid-body no-border">
+ 
+<div class="grid simple ">
+   <table class="table table-striped" id="example2" >
+                <thead>
+                  <tr>
+                     <th>Nom</th>
+                    <th>Prenom </th>
+                    <th>E-mail </th>
+                    <th>Sexe </th> 
+                    <th>Date de naissance</th>
+                    <th>Tel </th>
+                    <th>Verouillage </th>
+                    <th>Bloquage</th>
+                  </tr>
+                </thead>
+               
+                
+    {% for p in Personnes %}
+                <tbody>
+                    <tr class="odd gradeX">
+                    <td>{{p.nom}}</td>
+                    <td>{{p.prenom}} </td>
+                    <td>{{p.email}}</td>
+                    <td>{{p.sexe}}</td>
+                    <td>{{p.datenaissance|date('Y/m/d')}}</td>
+                    <td>{{p.tel}}</td>
+                   
+                    {% if p.credit == 0 %}
+                    <td>Non</td>
+                    <td><a href="{{path('tft_BloquerMembres',{id :p.idpersonne})}}" class=" btn btn-danger btn-small" onclick="return confirm('Etes-vous sur de Bloquer ce Membre ?' ) ">&nbsp; Bloquer&nbsp; &nbsp; </a> </td>
+                    {% endif %}
+                    
+                    {% if p.credit == 1 %}
+                    <td>Oui</td>    
+                    <td><a href="{{path('tft_DeBloquerMembres',{id :p.idpersonne})}}" class="btn btn-primary btn-small" onclick="return confirm('Etes-vous sur de Debloquer ce Membre ?')  ">Debloquer</a> </td>
+                    {% endif %}
+                  </tr>
+                </tbody>
+    {% endfor %} 
+    </table>
+
+</div>    		
+</div>
+</div>
+  
+</center>
+    
+  
+ {% endblock %}
+ 

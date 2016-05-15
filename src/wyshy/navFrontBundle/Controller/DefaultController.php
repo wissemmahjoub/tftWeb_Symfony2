@@ -15,4 +15,9 @@ class DefaultController extends Controller
         return $this->render('wyshynavFrontBundle:Default:login.html.twig');
     }
     
+      public function ContactAction()
+    {
+        return $this->render('wyshynavFrontBundle:Default:Contact.html.twig');
+    }
+    
 }

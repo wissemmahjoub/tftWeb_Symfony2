@@ -9,4 +9,7 @@ wyshynav_front_home:
 wyshynav_front_login:
     path:     /login
     defaults: { _controller: wyshynavFrontBundle:Default:login }
-
+    
+wyshynav_front_Contact:
+    path:     /contact
+    defaults: { _controller: wyshynavFrontBundle:Default:Contact }

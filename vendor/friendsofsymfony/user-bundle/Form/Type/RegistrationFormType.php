@@ -32,20 +32,16 @@ class RegistrationFormType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('nom','text',array('attr' => array('placeholder' => ' First Name ')))
-            ->add('prenom','text',array('attr' => array('placeholder' => ' Last Name ')))
-            ->add('email','email', array('attr' => array('class' =>'login-page email register-form','placeholder' => ' Email@xyz.com '),'label' => 'Email', 'translation_domain' => 'FOSUserBundle'))
-            ->add('username', null, array('label' => 'Username', 'translation_domain' => 'FOSUserBundle'))
+            ->add('email', LegacyFormHelper::getType('Symfony\Component\Form\Extension\Core\Type\EmailType'), array('label' => 'form.email', 'translation_domain' => 'FOSUserBundle'))
+            ->add('username', null, array('label' => 'form.username', 'translation_domain' => 'FOSUserBundle'))
             ->add('plainPassword', LegacyFormHelper::getType('Symfony\Component\Form\Extension\Core\Type\RepeatedType'), array(
                 'type' => LegacyFormHelper::getType('Symfony\Component\Form\Extension\Core\Type\PasswordType'),
                 'options' => array('translation_domain' => 'FOSUserBundle'),
-            'first_options' => array('attr' => array('class' =>' register-form col-md-4 '),'label' => '*Mot de passe'),
-                'second_options' => array('attr' => array('class' =>' register-form col-md-4 '),'label' => '*Retaper Mot de passe'),
+                'first_options' => array('label' => 'form.password'),
+                'second_options' => array('label' => 'form.password_confirmation'),
                 'invalid_message' => 'fos_user.password.mismatch',
             ))
-          ->add('Valider','submit',array('attr' => array('class' =>' register-submit btn btn-primary  btn-block login-button col-md-12 ')))
-                ;
-        
+        ;
     }
 
     public function configureOptions(OptionsResolver $resolver)

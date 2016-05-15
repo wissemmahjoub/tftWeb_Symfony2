@@ -314,6 +314,139 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
                 return $this->mergeDefaults(array_replace($matches, array('_route' => 'tft_DetailsActu')), array (  '_controller' => 'wyshy\\backNavBundle\\Controller\\ActualiteController::detailActuAction',));
             }
 
+            // wyshyback_maptft
+            if ($pathinfo === '/back/maptft') {
+                return array (  '_controller' => 'wyshy\\backNavBundle\\Controller\\DefaultController::tftmapAction',  '_route' => 'wyshyback_maptft',);
+            }
+
+            // tft_addStade
+            if ($pathinfo === '/back/addStade') {
+                return array (  '_controller' => 'wyshy\\backNavBundle\\Controller\\StadeController::addStadeAction',  '_route' => 'tft_addStade',);
+            }
+
+            // tft_updateStade
+            if (0 === strpos($pathinfo, '/back/updateStade') && preg_match('#^/back/updateStade/(?P<libellestade>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'tft_updateStade')), array (  '_controller' => 'wyshy\\backNavBundle\\Controller\\StadeController::ModifierStadeAction',));
+            }
+
+            // tft_deleteStade
+            if (0 === strpos($pathinfo, '/back/deleteStade') && preg_match('#^/back/deleteStade/(?P<idstade>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'tft_deleteStade')), array (  '_controller' => 'wyshy\\backNavBundle\\Controller\\StadeController::deleteStadeAction',));
+            }
+
+            // tft_findStade
+            if ($pathinfo === '/back/listStade') {
+                return array (  '_controller' => 'wyshy\\backNavBundle\\Controller\\StadeController::rechercherStadeAction',  '_route' => 'tft_findStade',);
+            }
+
+            // tft_LocaliserStade
+            if (0 === strpos($pathinfo, '/back/mapStade') && preg_match('#^/back/mapStade/(?P<idstade>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'tft_LocaliserStade')), array (  '_controller' => 'wyshy\\backNavBundle\\Controller\\StadeController::LocaliserStadeAction',));
+            }
+
+            // tft_ListerMembres
+            if ($pathinfo === '/back/ListerMembres') {
+                return array (  '_controller' => 'wyshy\\backNavBundle\\Controller\\MembresController::afficheMembresAction',  '_route' => 'tft_ListerMembres',);
+            }
+
+            // tft_BloquerMembres
+            if (0 === strpos($pathinfo, '/back/BloquerMembre') && preg_match('#^/back/BloquerMembre/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'tft_BloquerMembres')), array (  '_controller' => 'wyshy\\backNavBundle\\Controller\\MembresController::BloquerMembresAction',));
+            }
+
+            // tft_DeBloquerMembres
+            if (0 === strpos($pathinfo, '/back/DeBloquerMembre') && preg_match('#^/back/DeBloquerMembre/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'tft_DeBloquerMembres')), array (  '_controller' => 'wyshy\\backNavBundle\\Controller\\MembresController::DeBloquerMembresAction',));
+            }
+
+            // tft_AddTestDopage
+            if ($pathinfo === '/back/AddTestDopage') {
+                return array (  '_controller' => 'wyshy\\backNavBundle\\Controller\\TestDopageController::addTestDopageAction',  '_route' => 'tft_AddTestDopage',);
+            }
+
+            // tft_ListePlayersTest
+            if ($pathinfo === '/back/PlayersTestDopage') {
+                return array (  '_controller' => 'wyshy\\backNavBundle\\Controller\\TestDopageController::affichePlayersAction',  '_route' => 'tft_ListePlayersTest',);
+            }
+
+            // tft_ListeTestDopages
+            if ($pathinfo === '/back/ListeTestDopage') {
+                return array (  '_controller' => 'wyshy\\backNavBundle\\Controller\\TestDopageController::afficheTestDopageAction',  '_route' => 'tft_ListeTestDopages',);
+            }
+
+            // tft_deletTestDopages
+            if (0 === strpos($pathinfo, '/back/deleteTestDopage') && preg_match('#^/back/deleteTestDopage/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'tft_deletTestDopages')), array (  '_controller' => 'wyshy\\backNavBundle\\Controller\\TestDopageController::deleteTestDopageAction',));
+            }
+
+            // tft_UpdateTestDopages
+            if (0 === strpos($pathinfo, '/back/updateTestDopage') && preg_match('#^/back/updateTestDopage/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'tft_UpdateTestDopages')), array (  '_controller' => 'wyshy\\backNavBundle\\Controller\\TestDopageController::ModifierTestAction',));
+            }
+
+            // tft_InviterPlayerTest
+            if ($pathinfo === '/back/inviter') {
+                return array (  '_controller' => 'wyshy\\backNavBundle\\Controller\\TestDopageController::inviterJoueursAction',  '_route' => 'tft_InviterPlayerTest',);
+            }
+
+            // _grapheChartLine
+            if ($pathinfo === '/back/chartLine') {
+                return array (  '_controller' => 'wyshy\\backNavBundle\\Controller\\GrapheController::chartLineAction',  '_route' => '_grapheChartLine',);
+            }
+
+            // _grapheHistogramme
+            if ($pathinfo === '/back/histogramme') {
+                return array (  '_controller' => 'wyshy\\backNavBundle\\Controller\\GrapheController::chartHistogrammeAction',  '_route' => '_grapheHistogramme',);
+            }
+
+            if (0 === strpos($pathinfo, '/back/pie')) {
+                // _graphePie
+                if ($pathinfo === '/back/pie') {
+                    return array (  '_controller' => 'wyshy\\backNavBundle\\Controller\\GrapheController::chartPieAction',  '_route' => '_graphePie',);
+                }
+
+                // _graphePie2
+                if ($pathinfo === '/back/pie2') {
+                    return array (  '_controller' => 'wyshy\\backNavBundle\\Controller\\GrapheController::chartPie2Action',  '_route' => '_graphePie2',);
+                }
+
+                // _graphePie3
+                if ($pathinfo === '/back/pie3') {
+                    return array (  '_controller' => 'wyshy\\backNavBundle\\Controller\\GrapheController::chartPie3Action',  '_route' => '_graphePie3',);
+                }
+
+            }
+
+            // tft_addDossier
+            if ($pathinfo === '/back/addDossier') {
+                return array (  '_controller' => 'wyshy\\backNavBundle\\Controller\\DossierMedicalController::addDossierAction',  '_route' => 'tft_addDossier',);
+            }
+
+            // tft_ListerDossier
+            if ($pathinfo === '/back/ListeDossier') {
+                return array (  '_controller' => 'wyshy\\backNavBundle\\Controller\\DossierMedicalController::afficheDossierMedicalAction',  '_route' => 'tft_ListerDossier',);
+            }
+
+            // tft_DeleteDossier
+            if (0 === strpos($pathinfo, '/back/deleteDossier') && preg_match('#^/back/deleteDossier/(?P<iddossier>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'tft_DeleteDossier')), array (  '_controller' => 'wyshy\\backNavBundle\\Controller\\DossierMedicalController::supprimerDossierAction',));
+            }
+
+            // tft_UpdateDossier
+            if (0 === strpos($pathinfo, '/back/UpdateDossier') && preg_match('#^/back/UpdateDossier/(?P<iddossier>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'tft_UpdateDossier')), array (  '_controller' => 'wyshy\\backNavBundle\\Controller\\DossierMedicalController::ModifierDossierAction',));
+            }
+
+            // tft_DetailsDossier
+            if (0 === strpos($pathinfo, '/back/DetailsDossier') && preg_match('#^/back/DetailsDossier/(?P<iddossier>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'tft_DetailsDossier')), array (  '_controller' => 'wyshy\\backNavBundle\\Controller\\DossierMedicalController::DetailsDossierAction',));
+            }
+
+            // tft_Mail
+            if ($pathinfo === '/back/mail') {
+                return array (  '_controller' => 'wyshy\\backNavBundle\\Controller\\ContactController::mailAction',  '_route' => 'tft_Mail',);
+            }
+
         }
 
         if (0 === strpos($pathinfo, '/front')) {
@@ -334,6 +467,11 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             // wyshynav_front_login
             if ($pathinfo === '/front/login') {
                 return array (  '_controller' => 'wyshy\\navFrontBundle\\Controller\\DefaultController::loginAction',  '_route' => 'wyshynav_front_login',);
+            }
+
+            // wyshynav_front_Contact
+            if ($pathinfo === '/front/contact') {
+                return array (  '_controller' => 'wyshy\\navFrontBundle\\Controller\\DefaultController::ContactAction',  '_route' => 'wyshynav_front_Contact',);
             }
 
         }

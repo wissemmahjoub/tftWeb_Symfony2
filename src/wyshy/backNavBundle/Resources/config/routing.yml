@@ -127,3 +127,121 @@ tft_DetailsActu:
     
        
 #    Fin Routing Chams    
+
+#    ----------------------------------------------------------    
+
+
+#    Debut Routing  Wissem    
+
+
+wyshyback_maptft:
+    path:     /maptft
+    defaults: { _controller: wyshybackNavBundle:Default:tftmap}
+
+tft_addStade:
+    path:     /addStade
+    defaults: { _controller: wyshybackNavBundle:Stade:addStade }
+    
+    
+tft_updateStade:
+    path:     /updateStade/{libellestade}
+    defaults: { _controller: wyshybackNavBundle:Stade:ModifierStade }
+
+tft_deleteStade:
+    path:     /deleteStade/{idstade}
+    defaults: { _controller: wyshybackNavBundle:Stade:deleteStade }
+    
+tft_findStade:
+    path:     /listStade
+    defaults: { _controller: wyshybackNavBundle:Stade:rechercherStade }
+    
+tft_LocaliserStade:
+    path:     /mapStade/{idstade}
+    defaults: { _controller: wyshybackNavBundle:Stade:LocaliserStade }    
+
+tft_ListerMembres:
+    path:     /ListerMembres
+    defaults: { _controller: wyshybackNavBundle:Membres:afficheMembres } 
+
+tft_BloquerMembres:
+    path:     /BloquerMembre/{id}
+    defaults: { _controller: wyshybackNavBundle:Membres:BloquerMembres } 
+    
+tft_DeBloquerMembres:
+    path:     /DeBloquerMembre/{id}
+    defaults: { _controller: wyshybackNavBundle:Membres:DeBloquerMembres }
+
+tft_AddTestDopage:
+    path:     /AddTestDopage
+    defaults: { _controller: wyshybackNavBundle:TestDopage:addTestDopage }
+    
+tft_ListePlayersTest:
+    path:     /PlayersTestDopage
+    defaults: { _controller: wyshybackNavBundle:TestDopage:affichePlayers }
+
+    
+tft_ListeTestDopages:
+    path:     /ListeTestDopage
+    defaults: { _controller: wyshybackNavBundle:TestDopage:afficheTestDopage }
+
+tft_deletTestDopages:
+    path:     /deleteTestDopage/{id}
+    defaults: { _controller: wyshybackNavBundle:TestDopage:deleteTestDopage }
+
+tft_UpdateTestDopages:
+    path:     /updateTestDopage/{id}
+    defaults: { _controller: wyshybackNavBundle:TestDopage:ModifierTest }
+
+tft_InviterPlayerTest:
+    path:     /inviter
+    defaults: { _controller: wyshybackNavBundle:TestDopage:inviterJoueurs }
+
+_grapheChartLine:
+    path:     /chartLine
+    defaults: { _controller: wyshybackNavBundle:Graphe:chartLine } 
+    
+_grapheHistogramme:
+    path:     /histogramme
+    defaults: { _controller: wyshybackNavBundle:Graphe:chartHistogramme }    
+ 
+_graphePie:
+    path:     /pie
+    defaults: { _controller: wyshybackNavBundle:Graphe:chartPie }
+
+_graphePie2:
+    path:     /pie2
+    defaults: { _controller: wyshybackNavBundle:Graphe:chartPie2 }
+
+_graphePie3:
+    path:     /pie3
+    defaults: { _controller: wyshybackNavBundle:Graphe:chartPie3 }
+
+tft_addDossier:
+    path:     /addDossier
+    defaults: { _controller: wyshybackNavBundle:DossierMedical:addDossier }
+
+tft_ListerDossier:
+    path:     /ListeDossier
+    defaults: { _controller: wyshybackNavBundle:DossierMedical:afficheDossierMedical }
+
+tft_DeleteDossier:
+    path:     /deleteDossier/{iddossier}
+    defaults: { _controller: wyshybackNavBundle:DossierMedical:supprimerDossier }
+
+tft_UpdateDossier:
+    path:     /UpdateDossier/{iddossier}
+    defaults: { _controller: wyshybackNavBundle:DossierMedical:ModifierDossier }
+
+tft_DetailsDossier:
+    path:     /DetailsDossier/{iddossier}
+    defaults: { _controller: wyshybackNavBundle:DossierMedical:DetailsDossier }
+
+tft_Mail:
+    path:     /mail
+    defaults: { _controller: wyshybackNavBundle:Contact:mail }
+    
+#    Fin Routing Wissem
+
+#    -----------------------------------------------------------------    
+
+    

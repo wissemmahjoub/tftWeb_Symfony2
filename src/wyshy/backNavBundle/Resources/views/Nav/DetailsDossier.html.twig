@@ -1,0 +1,175 @@
+{% extends "wyshybackNavBundle::Layout.html.twig" %}
+{% block menu %}
+ <li class=""> <a href="javascript:;"> <i class="fa fa-file-text"></i> <span class="title">Dossier Medical</span> <span class="arrow "></span> </a>
+          <ul class="sub-menu">
+            <li > <a href="{{path('tft_addDossier')}}"> Ajouter </a> </li>
+            <li > <a href="{{path('tft_ListerDossier')}}"> Afficher </a> </li>
+          </ul>
+        </li>
+{% endblock %}
+
+{% block content %}
+
+    
+<div class="content">
+	 <div class="row">
+             
+      <div class="col-md-11">
+        <div class="grid simple">
+          <div class="grid-body no-border invoice-body"> <br>
+            <div class="pull-left"> <img src="{{ asset('backEnd/assets/img/invoicelogo.png') }}" data-src="{{ asset('backEnd/assets/img/invoicelogo.png') }}" data-src-retina="{{ asset('assets/img/invoicelogo2x.png') }}" width="222" height="31" class="invoice-logo" alt="">
+              <address>
+              
+           {% if  P.avatar  %}
+           <div class="user-profile"> <img src="{{asset('backEnd/assets/img/others/'~P.avatar)}}"   width="100" height="100"> </div>
+           {% elseif P.sexe == "Homme" %}
+           <div class="user-profile"> <img src="{{asset('backEnd/assets/img/others/men.jpg')}}"   width="100" height="100"> </div>
+          {% elseif P.sexe == "Femme" %}
+          <div class="user-profile"> <img src="{{asset('backEnd/assets/img/others/women.jpg')}}"   width="100" height="100"> </div>
+          {% else%}
+           {% endif %}
+
+              </address>
+            </div>
+            <div class="pull-right">
+                
+            
+              <a href class="fa fa-print" onclick="window.print();">     Imprimer</a>
+              
+              <div class="tiles white text-center">
+                    <h2 class="semi-bold text-primary weather-widget-big-text no-margin p-t-35 p-b-10">RF{{D.iddossier}}</h2>
+                    <div class="tiles-title blend p-b-25">Reference</div>
+                    <div class="clearfix"></div>
+                  </div>
+            </div>
+            <div class="clearfix"></div>
+            <br>
+            <br>
+            <br>
+            <div class="row">
+              <div class="col-md-9">
+                  <h4>Nom du Joueur :  <span class="semi-bold">{{P.nom}} {{P.prenom}}</span></h4>
+                <address>
+                <strong>Informations </strong><br>
+               
+                </address>
+                <div class="notification-messages success">
+                  <div class="message-wrapper">
+                    <div class="heading"> E-mail :</div>
+                    <div class="description"> {{P.email}} </div>
+                  </div>
+                  <div class="clearfix"></div>
+                </div>
+                <div class="notification-messages success">
+                  <div class="message-wrapper">
+                    <div class="heading"> Sexe :</div>
+                    <div class="description"> {{P.sexe}}  </div>
+                  </div>
+                  <div class="clearfix"></div>
+                </div>
+                <div class="notification-messages info">
+                  <div class="message-wrapper">
+                    <div class="heading"> Cin :</div>
+                    <div class="description"> {{P.cin}} </div>
+                  </div>
+                  <div class="clearfix"></div>
+                </div>
+                <div class="notification-messages info">
+                  <div class="message-wrapper">
+                    <div class="heading"> Adresse :</div>
+                    <div class="description"> {{P. adresse}} </div>
+                  </div>
+                  <div class="clearfix"></div>
+                </div>
+                <div class="notification-messages info">
+                  <div class="message-wrapper">
+                    <div class="heading"> Date de Naissance :</div>
+                    <div class="description"> {{P.datenaissance|date('d-m-y')}} </div>
+                  </div>
+                  <div class="clearfix"></div>
+                </div>
+              </div>
+              <div class="col-md-3"> <br>
+               
+                <div>
+                  <div class="pull-left"> VU LE  :  </div>
+                  <div class="pull-right">  {{ 'now'|date('d - m -Y') }}</div>
+                </div>
+                <br>
+                <div class="well well-small green">
+                  <div class="pull-left"> Taille Joueur : </div>
+                  <div class="pull-right"> {{D.taille}} cm </div>
+                  <div class="clearfix"></div>
+                </div>
+                <div class="well well-small ">
+                  <div class="pull-left"> Poid Joueur : </div>
+                  <div class="pull-right"> {{D.poid}} Kg </div>
+                  <div class="clearfix"></div>
+                </div>
+                  <div class="well well-small green">
+                  <div class="pull-left"> Type de Sang : </div>
+                  <div class="pull-right"> {{D.sang}}  </div>
+                  <div class="clearfix"></div>
+                </div>
+                  <div class="well well-small ">
+                  <div class="pull-left"> Fumeur : </div>
+                  <div class="pull-right"> {{D.fumeur}}  </div>
+                  <div class="clearfix"></div>
+                </div>
+              </div>
+            </div>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th style="width:60px" class="unseen text-center">Situation familiale</th>
+                  <th class="text-center">Nombre d'enfant</th>
+                  <th class="text-center">Nom&Prenom pere</th>
+                  <th class="text-right">Nom&Prenom mere</th>
+
+            
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="unseen text-center">{{D.situation}}</td>
+                  <td class="unseen text-center">{{D.nbenfant}}</td>
+                  <td class="text-center">{{D.nomprenompere}}</td>
+                  <td class="text-right">{{D.nomprenommere}}</td>
+                </tr>
+              
+                <tr>
+                    <td colspan="2" rowspan="4"><h4 class="semi-bold">Date derniere visite</h4>{{D.datederniervisite|date('y-m-d')}}
+                        <h4>Raison de derniere visite</h4>
+                    <h5 class="text-left text-black">{{D.raisonvisite}}</h5></td>
+                </tr>
+                <tr>
+                    <td colspan="2" rowspan="4"><h4 class="semi-bold">Libelle Test</h4>{{D.Test}}
+                        <h4>Maladie</h4>
+                    <h5 class="text-left text-black">{{D.maladie}}</h5></td>
+                </tr>
+                 
+              </tbody>
+            </table>
+<h4 class="semi-bold">Commentaire</h4>
+ <div class="notification-messages info">
+                  <div class="message-wrapper">
+                    <div class="heading"><h4>{{D.commentaire}}</h4></div>
+                    
+                  </div>
+                  <div class="clearfix"></div>
+                </div>
+
+
+                    <br>
+            <br>
+            <h5 class="text-right text-black">Signature</h5>
+            <h5 class="text-right semi-bold text-black">Medecin</h5>
+            <br>
+            <br>
+          </div>
+        </div>
+      </div>
+      
+      </div>
+    </div>
+{% endblock%}

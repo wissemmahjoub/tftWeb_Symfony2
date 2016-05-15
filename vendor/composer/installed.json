@@ -1800,12 +1800,12 @@
         "source": {
             "type": "git",
             "url": "https://github.com/FriendsOfSymfony/FOSUserBundle.git",
-            "reference": "c85b5d9e48c0f2918ac6161e268d6f981a24c875"
+            "reference": "abb35b94ed8ec78a504c9e1a2cd803d85d3ffad9"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/FriendsOfSymfony/FOSUserBundle/zipball/c85b5d9e48c0f2918ac6161e268d6f981a24c875",
-            "reference": "c85b5d9e48c0f2918ac6161e268d6f981a24c875",
+            "url": "https://api.github.com/repos/FriendsOfSymfony/FOSUserBundle/zipball/abb35b94ed8ec78a504c9e1a2cd803d85d3ffad9",
+            "reference": "abb35b94ed8ec78a504c9e1a2cd803d85d3ffad9",
             "shasum": ""
         },
         "require": {
@@ -1827,7 +1827,7 @@
         "suggest": {
             "willdurand/propel-typehintable-behavior": "Needed when using the propel implementation"
         },
-        "time": "2016-05-10 08:29:38",
+        "time": "2016-05-13 11:27:34",
         "type": "symfony-bundle",
         "extra": {
             "branch-alias": {
@@ -2119,6 +2119,114 @@
             "symfony",
             "symfony2bundle",
             "twitter"
+        ]
+    },
+    {
+        "name": "zendframework/zend-json",
+        "version": "3.0.0",
+        "version_normalized": "3.0.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/zendframework/zend-json.git",
+            "reference": "f42a1588e75c2a3e338cd94c37906231e616daab"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/zendframework/zend-json/zipball/f42a1588e75c2a3e338cd94c37906231e616daab",
+            "reference": "f42a1588e75c2a3e338cd94c37906231e616daab",
+            "shasum": ""
+        },
+        "require": {
+            "php": "^5.5 || ^7.0"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "~4.0",
+            "squizlabs/php_codesniffer": "^2.3",
+            "zendframework/zend-stdlib": "^2.7 || ^3.0"
+        },
+        "suggest": {
+            "zendframework/zend-json-server": "For implementing JSON-RPC servers",
+            "zendframework/zend-xml2json": "For converting XML documents to JSON"
+        },
+        "time": "2016-04-01 02:34:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "3.0-dev",
+                "dev-develop": "3.1-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Zend\\Json\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "BSD-3-Clause"
+        ],
+        "description": "provides convenience methods for serializing native PHP to JSON and decoding JSON to native PHP",
+        "homepage": "https://github.com/zendframework/zend-json",
+        "keywords": [
+            "json",
+            "zf2"
+        ]
+    },
+    {
+        "name": "ob/highcharts-bundle",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/marcaube/ObHighchartsBundle.git",
+            "reference": "bb88068b8f3e157cf2e115e5e3c9aae9160ccebc"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/marcaube/ObHighchartsBundle/zipball/bb88068b8f3e157cf2e115e5e3c9aae9160ccebc",
+            "reference": "bb88068b8f3e157cf2e115e5e3c9aae9160ccebc",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3",
+            "symfony/symfony": "~2.3|~3.0",
+            "zendframework/zend-json": "~2.3|~3.0"
+        },
+        "time": "2016-05-13 13:51:13",
+        "type": "symfony-bundle",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.5.x-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Ob\\HighchartsBundle\\": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Marc Aubé"
+            }
+        ],
+        "description": "Symfony2 Bundle that ease the use of highcharts to display rich graph and charts in your app",
+        "homepage": "https://github.com/marcaube/ObHighchartsBundle",
+        "keywords": [
+            "Symfony2",
+            "chart",
+            "charting",
+            "charts",
+            "graph",
+            "graphs",
+            "highcharts",
+            "marcaube",
+            "ob"
         ]
     }
 ]

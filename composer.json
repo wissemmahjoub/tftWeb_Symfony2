@@ -20,7 +20,8 @@
         "incenteev/composer-parameter-handler": "~2.0",
         "friendsofsymfony/user-bundle": "~2.0@dev",
         "hwi/oauth-bundle": "0.4.*@dev",
-        "nomaya/social-bundle": "dev-master"
+        "nomaya/social-bundle": "dev-master",
+        "ob/highcharts-bundle":"dev-master"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3"

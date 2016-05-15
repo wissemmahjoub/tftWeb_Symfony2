@@ -1,0 +1,137 @@
+{% extends "wyshybackNavBundle::Layout.html.twig" %}
+
+{% block menu %}
+        <li class=""> <a href="javascript:;"> <i class="icon-custom-extra"></i> <span class="title">Stade</span> <span class="arrow "></span> </a>
+          <ul class="sub-menu">
+            <li > <a href="{{path('tft_addStade')}}"> Ajouter </a> </li>
+            <li> <a href="{{path('tft_findStade')}}"> Afficher </a> </li>
+          </ul>
+        </li>
+      
+{% endblock %}
+
+{% block content %}
+<center>
+     
+  <h1 class="light">Liste des <span class="semi-bold">Stade</span></h1>
+ <form method="post" action ="{{path('tft_findStade')}}">
+     <!--  zone de texte pour la recherche --->
+   
+    
+         <center>
+     <div class="input-group">
+	<span class="input-group-addon primary">				  
+	<span class="arrow"></span>
+	<i class="fa fa-align-justify"></i>
+	 </span>
+         <input type="text" class="form-control"  name="libellestade" id="libellestade" placeholder="   L  i  b  e  l  l  e"  >
+     </div>
+         </center>
+     <p class="col-md-12">
+	Vous Pouvez effectuer la recherche on utilisant le LIBELLE du stade 
+    </p>
+  
+     <br> <br>
+     
+     
+    <input type="submit" value="Recherche" class="btn btn-success btn-cons"><br><br>
+ </form>
+
+
+<div class="grid simple">
+    
+<div class="grid-title no-border">
+   <!-- ce div contient 2 bouton (cacher et reduire)
+   <div class="tools"> 
+        <a href="javascript:;" class="collapse"></a>  
+        <a href="javascript:;" class="remove"></a>
+    </div> 
+   -->
+</div>
+ 
+<div class="grid-body no-border">
+ 
+<div class="grid simple ">
+   <table class="table table-striped" id="example2" >
+                <thead>
+                  <tr>
+                    <th>Libelle</th>
+                    <th>Addresse </th>
+                    <th>Capacite </th>
+                    <th>Surface </th> 
+                    <th>Date de Creation </th>
+                    <th>Modifier </th>
+                    <th>Supprimer</th>
+                    <th>Localisation</th>
+                  </tr>
+                </thead>
+    {% for S in Stade %}
+                <tbody>
+                    <tr class="odd gradeX">
+                    <td>{{S.libellestade}}</td>
+                    <td>{{S.ville}} </td>
+                    <td>{{S.capacite}}</td>
+                    <td>{{S.surface}}</td>
+                    <td>{{S.datecreation|date('Y/m/d')}}</td>
+
+                     <td><a href="{{path('tft_updateStade',{libellestade:S.libellestade})}} " class='btn btn-info btn-small'>Modifier</a></td>
+                    <td><a href="{{path('tft_deleteStade',{idstade:S.idstade})}}" class=" btn btn-danger btn-small" onclick="return confirm('Etes-vous sur de supprimer ce Stade ?')">Supprimer</a></td>
+                    <td><a href="{{path('tft_LocaliserStade',{idstade:S.idstade})}}" class=" btn btn-success btn-small">Localisation</a></td>
+                 
+                    </tr>
+                </tbody>
+    {% endfor %} 
+    </table>
+</div>    		
+</div>
+</div>
+  
+</center>
+    
+ <div class="col-md-4">
+                  
+                  <br>
+                  <button class="btn btn-lg" data-toggle="modal" data-target="#myModal"> Launch demo modal </button>
+                  <!-- Modal -->
+                  <div class="modal fade" id="myModal" tabindex="200" role="dialog" aria-labelledby="myModalLabel" >
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
+                          <br>
+                          <i class="fa fa-credit-card fa-7x"></i>
+                          <h4 id="myModalLabel" class="semi-bold">GOOGLE MAP API.</h4>
+                          <p class="no-margin">cliquer juste sur la ville correspondante  </p>
+                          <br>
+                        </div>
+                        <div class="modal-body">
+                      ytghhhjhh
+                      <img src="'backEnd/assets/logo-b2x.png">
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                          
+                        </div>
+                      </div>
+                      <!-- /.modal-content -->
+                    </div>
+                    <!-- /.modal-dialog -->
+                  </div>
+                  <!-- /.modal -->
+                </div>
+    
+    <!DOCTYPE html>
+  
+
+
+ 
+ 
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+
+
+
+    
+ 
+    {% endblock %}

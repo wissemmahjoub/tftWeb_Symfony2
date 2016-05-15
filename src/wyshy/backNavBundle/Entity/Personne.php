@@ -9,7 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\Table(name="personne", uniqueConstraints={@ORM\UniqueConstraint(name="CIN", columns={"cin"}), @ORM\UniqueConstraint(name="login", columns={"login"})}, indexes={@ORM\Index(name="idclub", columns={"idclub"})})
  * @ORM\Entity
- * @ORM\Entity(repositoryClass="wyshy\backNavBundle\Entity\JoueurRepository")
+ * @ORM\Entity(repositoryClass="wyshy\backNavBundle\Entity\PersonneRepository")
  */
 class Personne
 {
@@ -445,10 +445,7 @@ class Personne
         $this->tel = $tel;
     }
 
-    function setIdclub(\Club $idclub) {
-        $this->idclub = $idclub;
-    }
-
+   
     function setIdticketAchat(\Doctrine\Common\Collections\Collection $idticketAchat) {
         $this->idticketAchat = $idticketAchat;
     }
@@ -477,5 +474,19 @@ class Personne
         $this->idtestInvitation = new \Doctrine\Common\Collections\ArrayCollection();
         $this->idticket = new \Doctrine\Common\Collections\ArrayCollection();
     }
+    
+    
+//  function setIdclub(\Club $idclub) {
+//        $this->idclub = $idclub;
+//    }
+    
+     function setIdclub(\Doctrine\Common\Collections\Collection $idclub) {
+        $this->idclub = $idclub;
+    }
+
+  public function __toString()
+{
+    return $this->nom;
+}
 
 }

@@ -1,0 +1,17 @@
+{% extends "wyshybackNavBundle::Layout.html.twig" %}
+
+{% block menu %}
+        <li class=""> <a href="{{path('tft_addStade')}}"> <i class="fa fa-th"></i> <span class="title">Ajouter Stade</span> </a> </li>
+        <li class="">  <a href="{{path('tft_findStade')}}"><i class="fa fa-th"></i> <span class="title">Recherche Stades</span> </a> </li> 
+{% endblock %}
+
+{% block content %}
+    <center>
+    <h1> Modifier Stade</h1>
+ <form method='POST' action="{{path('tft_updateStade',{libellestade:Stade.libellestade})}}" >
+        
+        {{ form_widget (form) }}
+        
+    </form>
+    </center>
+{% endblock %}

@@ -112,6 +112,17 @@ hwi_oauth:
             paths:
                 email: email
 
+# Swiftmailer Configuration
+swiftmailer:
+    transport: "smtp"
+    encryption: "ssl"
+    auth_mode: "login"
+    port: "465"
+    host:      "smtp.gmail.com"
+    username:  "tftmywishy@gmail.com"
+    password:  "tftmywishy2016"
+    
+                
                 
    
                 
