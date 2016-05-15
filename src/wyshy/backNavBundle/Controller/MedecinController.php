@@ -5,6 +5,7 @@ namespace wyshy\backNavBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use wyshy\backNavBundle\Entity\Personne;
  use wyshy\backNavBundle\form\MedecinModifForm;
+ use mysqli;
 
 class MedecinController extends Controller
 {
@@ -28,7 +29,9 @@ class MedecinController extends Controller
                    ->add('login','text',array('attr' => array('placeholder' => ' login ')))
                    ->add('specialite','text',array('attr' => array('placeholder' => ' specialite ')))
                    ->add('salaire','text',array('attr' => array('placeholder' => ' salaire ')))
-                   ->add('datenaissance','birthday')
+                   //->add('datenaissance','birthday')
+             ->add('datenaissance', 'date',['widget' => 'single_text','format' => 'dd-MM-yyyy','attr' => ['class' => ' datepicker','data-provide' => 'datepicker','data-date-format' => 'dd-mm-yyyy']])
+
                 //   ->add('sexe','text',array('attr' => array('placeholder' => ' sexe ')))
                    ->add('email','text',array('attr' => array('placeholder' => ' email ')))
                    ->add('adresse','text',array('attr' => array('placeholder' => ' adresse ')))
@@ -38,6 +41,45 @@ class MedecinController extends Controller
                 $request = $this->getRequest();
           if($form->handleRequest($request)->isValid())
           { try {
+              
+              $servername = "localhost";
+            $username = "root";
+            $password = "";
+            $dbname = "tft";
+// Create connection
+            $conn = new mysqli($servername, $username, $password, $dbname);
+// Check connection
+            if ($conn->connect_error) {
+                die("Connection failed: " . $conn->connect_error);
+            }
+
+
+            $salt = "abcd";
+            $r = '{i:0;s:12:"ROLE_MEDECIN";}';
+            $salted = $Medecin->getPassword() . '{' . $salt . '}';
+            $digest = hash('sha512', $salted, true);
+
+            for ($i = 1; $i < 5000; $i++) {
+                $digest = hash('sha512', $digest . $salted, true);
+            }
+
+            $encodedPassword = base64_encode($digest);
+
+              $prenom = $Medecin->getPrenom();
+            
+            $nom = $Medecin->getPrenom();
+            $login = $Medecin->getLogin();
+            $email = $Medecin->getEmail();
+           
+            $sql2 = "INSERT INTO fos_user (prenom,nom,email,username,password,salt,roles,username_canonical,email_canonical,enabled)
+            VALUES ('$prenom','$nom','$email','$login','$encodedPassword','abcd','$r','$login','$email',1)";
+
+            if (mysqli_query($conn, $sql2)) {
+
+            } else {
+            }
+              
+              
               $em=  $this->getDoctrine()->getManager();
               $em->persist($Medecin);
               $em->flush();
