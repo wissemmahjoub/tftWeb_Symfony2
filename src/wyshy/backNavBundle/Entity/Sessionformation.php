@@ -52,7 +52,7 @@ class Sessionformation
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="datedestruction", type="date", nullable=false)
+     * @ORM\Column(name="datedestruction", type="date", nullable=true)
      */
     private $datedestruction;
 

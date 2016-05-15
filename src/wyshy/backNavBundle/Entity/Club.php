@@ -31,7 +31,7 @@ class Club
     /**
      * @var string
      *
-     * @ORM\Column(name="avatar", type="string", length=100, nullable=false)
+     * @ORM\Column(name="avatar", type="string", length=100, nullable=true)
      */
     private $avatar;
 

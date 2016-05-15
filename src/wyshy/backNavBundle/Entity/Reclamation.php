@@ -28,12 +28,7 @@ class Reclamation
      */
     private $sujet;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="path", type="string", length=80, nullable=false)
-     */
-    private $path;
+  
 
     /**
      * @var \DateTime

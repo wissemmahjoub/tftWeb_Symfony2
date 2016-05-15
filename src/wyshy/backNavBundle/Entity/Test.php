@@ -35,6 +35,12 @@ class Test
      */
     private $datetest;
 
+  /**
+     * @var string
+     *
+     * @ORM\Column(name="heure", type="string", length=10, nullable=true)
+     */
+    private $heure;
     
 
     /**
@@ -60,6 +66,16 @@ class Test
         $this->idjoueur = new \Doctrine\Common\Collections\ArrayCollection();
     }
     
+    
+    function getHeure() {
+        return $this->heure;
+    }
+
+    function setHeure($heure) {
+        $this->heure = $heure;
+    }
+
+        
      function getIdtest() {
         return $this->idtest;
     }
