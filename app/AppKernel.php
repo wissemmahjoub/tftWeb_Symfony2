@@ -22,6 +22,7 @@ class AppKernel extends Kernel
             new wyshy\UserBundle\wyshyUserBundle(),
             new HWI\Bundle\OAuthBundle\HWIOAuthBundle(),
             new Ob\HighchartsBundle\ObHighchartsBundle(),
+            new Nomaya\SocialBundle\NomayaSocialBundle(),
 
            
         );
