@@ -1,0 +1,203 @@
+{% extends "wyshybackNavBundle::Layout.html.twig" %}
+{% block titre %}
+    <title>Information de la competition</title>
+{% endblock %}
+{% block menu %}
+    <li class=""> <a href="widgets.html"> <i class="fa fa-th"></i> <span class="title">Competitions</span> <span class="arrow "></span></a> 
+        <ul class="sub-menu">
+            <li > <a href="{{path('wyshyback_nav_AfficherComp')}}"> Lise des competitions </a> </li>
+            <li > <a href="{{path('wyshyback_nav_AjouterComp')}}">Ajouter une nouvelle</a> </li>
+        </ul>
+
+    </li>
+    <li class=""> <a href="widgets.html"> <i class="fa fa-th"></i> <span class="title">Competitions</span> <span class="arrow "></span></a> 
+        <ul class="sub-menu">
+            <li > <a href="{{path('wyshyback_nav_AfficherComp')}}"> Lise des competitions </a> </li>
+            <li > <a href="{{path('wyshyback_nav_AjouterComp')}}">Ajouter une nouvelle</a> </li>
+        </ul>
+
+    </li>
+    <li class=""> <a href="widgets.html"> <i class="fa fa-th"></i> <span class="title">Competitions</span> <span class="arrow "></span></a> 
+        <ul class="sub-menu">
+            <li > <a href="{{path('wyshyback_nav_AfficherComp')}}"> Lise des competitions </a> </li>
+            <li > <a href="{{path('wyshyback_nav_AjouterComp')}}">Ajouter une nouvelle</a> </li>
+        </ul>
+
+    </li>
+
+{% endblock %}
+
+{% block content %}
+    <div class="col-md-12">
+        <div class="grid simple">
+            <div class="grid-title no-border">
+                <h4>Information sur la competition <span class="semi-bold"> {{ competition.libelle }}</span></h4>
+              {% set warning = 0 %}
+                {% for match in matchs %}
+                {% if match.datematch|date('Y/m/d') < "now"|date('Y/m/d')  and match.getIdScore() == null and match.idjoueur1.getNom() != "aux" %}
+                    {% set warning = 1 %}
+                 
+                {% endif %}
+                  {% endfor %}
+                  
+                  
+                  {% if warning == 1%}
+                    <div class="alert alert-error">
+                  <button class="close" data-dismiss="alert"></button>
+                   Cette competition comporte des matchs <a href="#" class="link"> deja passe </a> et ne sont pas mises a jour.
+                </div>
+                     {% endif %}
+                  </div>
+            <div class="grid-body no-border">
+                <table class="table table-bordered no-more-tables">
+                    <thead>
+                        <tr class="">
+
+                            <th class="text-center" style="width:10%">Categorie</th>
+                            <th class="text-center" style="width:6%">Niveau</th>
+                            <th class="text-center" style="width:6%">type</th>
+                            <th class="text-center" style="width:6%">Nombre de match</th>
+                            <th class="text-center" style="width:10%">Date debut</th>
+                            <th class="text-center" style="width:10%">Date Fin</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        <tr class="">
+
+                            <td class="text-center"> {{ competition.categorie }}</td>
+                            <td class="text-center"> {{ competition.niveau }}</td>
+                            <td class="text-center">{{competition.type}}</td>
+                            <td class="text-center">{{nbrMatchs}}</td>
+                            <td class="text-center">{{competition.datedebut|date('Y/m/d')}}</td>
+
+                            <td class="text-center">{{competition.datefin|date('Y/m/d')}}</td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+                        
+                        {% set number = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','B','W','X','Y','Z'] %}
+                       {% set i = 0 %}
+                       {% set j = 0 %}
+                        {% for match in matchs %}
+                        {% set aux = 0 %}
+    <div class="col-md-6">
+        <div class="grid simple">
+            <div class="grid-title no-border">
+                <h4> Match <span class="semi-bold">{{ number[i] }}</span></h4>
+                {% set i = i + 1 %}
+                  </div>
+            <div class="grid-body no-border">
+                
+
+                                        <div class="col-md-4">
+                                            {%  if match.idjoueur1.getNom() == "aux"  or  match.idjoueur2.getNom() == "aux"%}
+                                                {% set aux = 1 %}
+                                                    <label class="form-label"> Gagnant du match {{number[j]}}</label>
+                                                    {% set j = j + 1 %}
+                                                    {% else %}
+                                                     <label class="form-label">{{ match.idjoueur1.getNom() }}
+                                                     {% if match.idscore != null %}
+                                                        {% if match.getIdscore().nbrsetj1 > match.getIdscore().nbrsetj2 %} 
+                                                            : <span class="semi-bold" style="color:green;margin:0;padding:0;">Gagnant </span>
+                                                        {% endif %}
+                                                      {% endif %}
+                                                     </label>
+                                                      
+                                                {% endif %}
+                                           
+                                            
+                                            
+                                                <img id="avatar1" style="height:150px"src="{{ asset(match.Idjoueur1.getAvatar()) }}" data-img="assets/plugins/jquery-superbox/img/superbox/superbox-full-3.jpg" alt="" class="superbox-img">
+                                                </br><center>
+                                                </center>
+                                        </div>
+
+                                        <div class="col-md-4">
+
+                                            <span class="semi-bold"><center><img id="" src="{{ asset('backEnd/assets/img/profiles/vs.jpg') }}" data-img="assets/plugins/jquery-superbox/img/superbox/superbox-full-3.jpg" alt="" class="superbox-img">
+                                                    {{match.datematch|date('Y/m/d')}}</br></br>
+                                                      {% if match.datematch|date('Y/m/d') < "now"|date('Y/m/d')  and match.idscore == null  and aux == 0 %}
+                                                          <a href="{{ path('wyshyback_nav_score', {'idmatch': match.idmatch}) }}"> <button  type="button" class="btn btn-danger btn-sm btn-small">Affecter le score</button></a>
+                                                       
+                                                      {% endif %}
+                                                     
+                                                        
+                                                </center>
+                                                </span>
+                                        </div>
+
+                                        <div class="col-md-4">
+                                                  {%  if match.idjoueur1.getNom() == "aux" or match.idjoueur2.getNom() == "aux"%}
+                                                 <label class="form-label"> Gagnant du match {{number[j]}}</label>
+                                               {% set j = j + 1 %}
+                                                  {% else %}
+                                                      <label class="form-label">{{ match.idjoueur2.getNom() }}
+                                                      
+                                                      {% if match.idscore != null %}
+                                                        {% if match.getIdscore().nbrsetj1 < match.getIdscore().nbrsetj2 %} 
+                                                            : <span class="semi-bold" style="color:green;margin:0;padding:0;">Gagnant </span>
+                                                            {% endif %}
+                                                            {% endif %}
+                                                      </label>
+                                                      
+                                                {% endif %}
+                                          
+                                                <img id="avatar2" style="height:150px" src="{{ asset(match.Idjoueur2.getAvatar()) }}" data-img="assets/plugins/jquery-superbox/img/superbox/superbox-full-3.jpg" alt="" class="superbox-img">
+                                            
+                                        </div>
+                                    </div>
+                
+            
+        </div>
+    </div>
+                                            {% endfor %}
+                                            
+                                            {% set winner = 0 %}
+                                       
+                                            {% if nbrMatchsFinals == 0 %}
+                                                
+                                            <div class="col-md-12" >
+                                            <div class="grid simple">
+                                                 <div class="grid-title no-border">
+                                                        <h4> Classement de la competition <span class="semi-bold"></span></h4>
+                                                        
+                                                          </div>
+                                                <div class="grid-body no-border">
+                                            <table class="table table-hover no-more-tables">
+                                                <thead>
+                                                    <tr>
+                                                        <th>#</th>
+                                                        <th>Nom</th>
+                                                        <th>Prenom</th>
+                                                        <th>Score</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    {% set rang = 1 %}
+                                                    {% for c in classement %}
+                                                        <tr>
+                                                        <td>{{rang}}</td>
+                                                        <td>{{c.getIdjoueur().getNom()}}</td>
+                                                        <td>{{c.getIdjoueur().getPrenom()}}</td>
+                                                        <td>{{c.getRang()}}</td>
+                                                    </tr>
+                                                    {% set rang = rang + 1 %}
+                                                        {% endfor %}
+                                                    
+                                                </tbody>
+                                            </table>
+                                                </div>
+                                            </div>
+                                            </div>
+                                            {% endif %}
+            {% endblock %}
+            {% block js %}
+                <script> 
+                    </script>
+               {% endblock %}

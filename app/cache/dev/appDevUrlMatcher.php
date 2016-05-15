@@ -447,9 +447,62 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
                 return $this->mergeDefaults(array_replace($matches, array('_route' => 'tft_DetailsDossier')), array (  '_controller' => 'wyshy\\backNavBundle\\Controller\\DossierMedicalController::DetailsDossierAction',));
             }
 
-            // tft_Mail
-            if ($pathinfo === '/back/mail') {
-                return array (  '_controller' => 'wyshy\\backNavBundle\\Controller\\ContactController::mailAction',  '_route' => 'tft_Mail',);
+            if (0 === strpos($pathinfo, '/back/ma')) {
+                // tft_Mail
+                if ($pathinfo === '/back/mail') {
+                    return array (  '_controller' => 'wyshy\\backNavBundle\\Controller\\ContactController::mailAction',  '_route' => 'tft_Mail',);
+                }
+
+                // wyshyback_nav_matchs
+                if (0 === strpos($pathinfo, '/back/match') && preg_match('#^/back/match/(?P<idcompetition>[^/]++)$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'wyshyback_nav_matchs')), array (  '_controller' => 'wyshy\\backNavBundle\\Controller\\MatchController::ajouterMatchComAction',));
+                }
+
+            }
+
+            // wyshyback_nav_AjouterComp
+            if ($pathinfo === '/back/ajoutercomp') {
+                return array (  '_controller' => 'wyshy\\backNavBundle\\Controller\\CompetitionController::indexAction',  '_route' => 'wyshyback_nav_AjouterComp',);
+            }
+
+            // wyshyback_nav_AfficherComp
+            if ($pathinfo === '/back/listComp') {
+                return array (  '_controller' => 'wyshy\\backNavBundle\\Controller\\CompetitionController::afficheCompetitionAction',  '_route' => 'wyshyback_nav_AfficherComp',);
+            }
+
+            // wyshyback_nav_DeleteComp
+            if (0 === strpos($pathinfo, '/back/deletecompetition') && preg_match('#^/back/deletecompetition/(?P<idcompetition>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'wyshyback_nav_DeleteComp')), array (  '_controller' => 'wyshy\\backNavBundle\\Controller\\CompetitionController::deleteCompetitionAction',));
+            }
+
+            // wyshyback_nav_test
+            if ($pathinfo === '/back/nbr') {
+                return array (  '_controller' => 'wyshy\\backNavBundle\\Controller\\CompetitionController::nbJoueurAction',  '_route' => 'wyshyback_nav_test',);
+            }
+
+            // wyshyback_nav_gumble
+            if ($pathinfo === '/back/gumble') {
+                return array (  '_controller' => 'wyshy\\backNavBundle\\Controller\\GumbleController::parierAction',  '_route' => 'wyshyback_nav_gumble',);
+            }
+
+            // wyshyback_nav_updateCompeitition
+            if (0 === strpos($pathinfo, '/back/updatecompetition') && preg_match('#^/back/updatecompetition/(?P<idcompetition>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'wyshyback_nav_updateCompeitition')), array (  '_controller' => 'wyshy\\backNavBundle\\Controller\\CompetitionController::detailComAction',));
+            }
+
+            // wyshyback_nav_infoCompetition
+            if (0 === strpos($pathinfo, '/back/infocompetition') && preg_match('#^/back/infocompetition/(?P<idcompetition>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'wyshyback_nav_infoCompetition')), array (  '_controller' => 'wyshy\\backNavBundle\\Controller\\CompetitionController::infoComAction',));
+            }
+
+            // wyshyback_nav_finals
+            if (0 === strpos($pathinfo, '/back/finals') && preg_match('#^/back/finals/(?P<idcompetition>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'wyshyback_nav_finals')), array (  '_controller' => 'wyshy\\backNavBundle\\Controller\\MatchController::finalsAction',));
+            }
+
+            // wyshyback_nav_score
+            if (0 === strpos($pathinfo, '/back/score') && preg_match('#^/back/score/(?P<idmatch>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'wyshyback_nav_score')), array (  '_controller' => 'wyshy\\backNavBundle\\Controller\\MatchController::scoreAction',));
             }
 
         }

@@ -1,0 +1,292 @@
+{% extends "wyshybackNavBundle::Layout.html.twig" %}
+
+
+{% block menu %}
+    <li class=""> <a href="widgets.html"> <i class="fa fa-th"></i> <span class="title">Competitions</span> <span class="arrow "></span></a> 
+        <ul class="sub-menu">
+            <li > <a href="{{path('wyshyback_nav_AfficherComp')}}"> Lise des competitions </a> </li>
+            <li > <a href="{{path('wyshyback_nav_AjouterComp')}}">Ajouter une nouvelle</a> </li>
+        </ul>
+
+    </li>
+    <li class=""> <a href="widgets.html"> <i class="fa fa-th"></i> <span class="title">Matchs</span> <span class="arrow "></span></a> 
+        <ul class="sub-menu">
+            <li > <a href="{{path('wyshyback_nav_AfficherComp')}}"> Lise des competitions </a> </li>
+            <li > <a href="{{path('wyshyback_nav_AjouterComp')}}">Ajouter une nouvelle</a> </li>
+        </ul>
+
+    </li>
+    <li class=""> <a href="widgets.html"> <i class="fa fa-th"></i> <span class="title">Menu 2</span> <span class="arrow "></span></a> 
+        <ul class="sub-menu">
+            <li > <a href="{{path('wyshyback_nav_AfficherComp')}}"> Lise des competitions </a> </li>
+            <li > <a href="{{path('wyshyback_nav_AjouterComp')}}">Ajouter une nouvelle</a> </li>
+        </ul>
+
+    </li>
+{% endblock %}
+
+{% block content %}
+
+    <form method="POST">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="grid simple">
+                    <div class="grid-title no-border">
+                        <h4>Ajouter les premiers matchs a la competition : <span class="semi-bold"> {{ competition.libelle }}</span></h4>
+                        <table class="table table-bordered no-more-tables">
+                            <thead>
+                                <tr class="">
+
+                                    <th class="text-center" style="width:10%">Categorie</th>
+                                    <th class="text-center" style="width:6%">Niveau</th>
+                                    <th class="text-center" style="width:6%">type</th>
+                                    <th class="text-center" style="width:6%">Nombre de match</th>
+                                    <th class="text-center" style="width:10%">Date debut</th>
+                                    <th class="text-center" style="width:10%">Date Fin</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                <tr class="">
+
+                                    <td class="text-center"> {{ competition.categorie }}</td>
+                                    <td class="text-center"> {{ competition.niveau }}</td>
+                                    <td class="text-center">{{competition.type}}</td>
+                                    <td class="text-center">{{competition.nbrmatch}}</td>
+                                    <td class="text-center">{{competition.datedebut|date('Y/m/d')}}</td>
+
+                                    <td class="text-center">{{competition.datefin|date('Y/m/d')}}</td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+
+
+
+
+                        <div id="notifVrai"class="alert alert-success" style="display:none">
+                            <button class="close" data-dismiss="alert"></button>
+                            Le Match a ete:&nbsp; <a href="#" class="link">ajoute</a> avec succes. </div>
+
+
+
+                    </div>
+                    
+                                <div class="grid-body no-border">
+                        <form class="form-no-horizontal-spacing" id="form-condensed">	
+                            <div class="row column-seperation">
+                                <div class="col-md-12">
+                                    <h4>Information</h4>            
+                                    <div class="row form-row">
+
+                                        <div class="col-md-5">
+                                            <label class="form-label">Joueur 1</label>
+
+                                            {{ form_widget(form.idjoueur1) }}
+                                            <center>
+                                                <img style="height:150px; "id="avatar1" src="{{ asset('backEnd/assets/plugins/jquery-superbox/img/superbox/superbox-thumb-3.jpg') }}" data-img="assets/plugins/jquery-superbox/img/superbox/superbox-full-3.jpg" alt="" class="superbox-img">
+                                            </center>
+                                        </div>
+
+                                        <div class="col-md-2">
+
+                                            <span class="semi-bold"><center><img id="" src="{{ asset('backEnd/assets/img/profiles/vs.jpg') }}" data-img="assets/plugins/jquery-superbox/img/superbox/superbox-full-3.jpg" alt="" class="superbox-img">
+                                                </center></span>
+                                        </div>
+
+                                        <div class="col-md-5">
+                                            <label class="form-label">Joueur 2</label>
+
+                                            {{ form_widget(form.idjoueur2) }}
+                                            <center>
+                                                <img style="height:150px;" id="avatar2" src="{{ asset('backEnd/assets/plugins/jquery-superbox/img/superbox/superbox-thumb-3.jpg') }}" data-img="assets/plugins/jquery-superbox/img/superbox/superbox-full-3.jpg" alt="" class="superbox-img">
+                                            </center>
+                                        </div>
+                                    </div>
+                                    </br>
+                                    </br>
+                                    <div class="row form-row">
+                                        <div class="col-md-5">
+                                            <label class="form-label">Arbitre</label>
+                                            {{ form_widget(form.idarbitre) }}
+                                        </div>
+                                    </div>
+                                    </br>
+
+                                    </br>
+                                    <div class="row form-row">
+                                        <div class="col-md-8">
+                                            <label class="form-label">Date du match</label>
+                                            {{ form_widget(form.datematch) }}
+                                        </div>
+                                    </div>
+                                    </br>
+
+                                    </br>
+                                    <div class="row form-row">
+                                        <div class="col-md-8">
+                                            <label class="form-label">Choix des Stades </label>
+                                            {{ form_widget(form.idstade) }}
+
+                                        </div>
+                                    </div>
+                                    <div class="row form-row">
+
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="form-actions">
+
+
+
+
+                                {{ form_rest(form) }}
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+
+{% endblock %}
+{% block js %}
+
+    <script>
+        var j1Eliminated = ""
+        var j2Eliminated = "";
+
+        {% for i in 0..nbrMatch %}
+             if ("{{ competition.libelle }}" == sessionStorage.getItem('competition'))
+            {
+
+                var arya = JSON.parse(sessionStorage.getItem('joueur1{{ (nbrMatch-i) ~ competition.libelle }}'));
+                var arya2 = JSON.parse(sessionStorage.getItem('joueur2{{ (nbrMatch-i) ~ competition.libelle }}'));
+                if (arya != undefined && arya2 != undefined) {
+                    
+                    var test = $("#form_idjoueur1 option[value=" + arya.value + "]");
+                    var test1 = $("#form_idjoueur2 option[value=" + arya.value + "]");
+                    var test2 = $("#form_idjoueur2 option[value=" + arya2.value + "]");
+                    var test22 = $("#form_idjoueur1 option[value=" + arya2.value + "]");
+                    test.remove();
+                    test22.remove();
+                    test1.remove();
+                    test2.remove();
+                }
+            }
+           
+           
+           
+           
+           
+        {% endfor %}
+                  
+
+
+            $(document).ready(function () {
+
+                $("#form_Continuer").click(function () {
+                    alert("lazke");
+                    sessionStorage.setItem("competition", "{{ competition.libelle }}");
+                    var select = document.getElementById("form_idjoueur1");
+                    var optionSelected = select.options[select.selectedIndex];
+
+                    var vala = {
+                        'value': optionSelected.value,
+                        'text': optionSelected.text
+                    }
+
+                    sessionStorage.setItem("joueur1{{ nbrMatch ~ competition.libelle }}", JSON.stringify(vala));
+
+
+                    select = document.getElementById("form_idjoueur2");
+                    optionSelected = select.options[select.selectedIndex];
+                    sessionStorage.setItem("joueur2{{ nbrMatch ~ competition.libelle }}", JSON.stringify({
+                        'value': optionSelected.value,
+                        'text': optionSelected.text
+                    }));
+
+
+                });
+
+
+
+
+
+                if ($('#notif').length != 0)
+                {
+                    $('#notifVrai').slideDown();
+                }
+
+
+
+
+                $('#form_idjoueur1').change(function () {
+
+                    if (j2Eliminated !== "")
+                    {
+                        $("#form_idjoueur2").append("<option value=" + j2Eliminated.value + ">" + j2Eliminated.text + "</option>");
+
+                    }
+
+                    var select = document.getElementById("form_idjoueur1");
+                    var optionSelected = select.options[select.selectedIndex];
+
+                    var test = $("#form_idjoueur2 option[value=" + optionSelected.value + "]");
+                    test.remove();
+                    j2Eliminated = optionSelected;
+                    $('#notifVrai').slideUp();
+        {% for joueur in joueurs %}
+
+
+                    var valeur = select.options[select.selectedIndex].text;
+
+                    if (valeur == '{{joueur.nom}}')
+                    {
+                        $('#avatar1').attr('src', '{{ asset(joueur.avatar) }}');
+                    }
+        {% endfor %}
+
+                });
+
+
+
+
+
+
+                $('#form_idjoueur2').change(function () {
+
+
+                    if (j1Eliminated !== "")
+                    {
+                        $("#form_idjoueur1").append("<option value=" + j1Eliminated.value + ">" + j1Eliminated.text + "</option>");
+
+                    }
+                    var select = document.getElementById("form_idjoueur2");
+                    var optionSelected = select.options[select.selectedIndex];
+
+                    var test = $("#form_idjoueur1 option[value=" + optionSelected.value + "]");
+                    test.remove();
+                    j1Eliminated = optionSelected;
+
+        {% for joueur in joueurs %}
+
+
+                    var valeur = select.options[select.selectedIndex].text;
+
+                    if (valeur == '{{joueur.nom}}')
+                    {
+                        $('#avatar2').attr('src', '{{ asset(joueur.avatar) }}');
+                    }
+        {% endfor %}
+
+                });
+
+            });
+    </script>
+{% endblock %}
+{% block userInfo %}
+    Personne 1
+{% endblock %}

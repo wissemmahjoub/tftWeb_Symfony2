@@ -1,0 +1,60 @@
+{% extends "wyshybackNavBundle::Layout.html.twig" %}
+
+
+{% block menu %}
+    <li class=""> <a href="widgets.html"> <i class="fa fa-th"></i> <span class="title">Pari en ligne</span> <span class="arrow "></span></a> 
+        <ul class="sub-menu">
+            <li > <a href="{{path('wyshyback_nav_AfficherComp')}}"> Parier </a> </li>
+            <li > <a href="{{path('wyshyback_nav_AjouterComp')}}"> Historique </a> </li>
+        </ul>
+
+    </li>
+    
+{% endblock %}
+{% block content %}
+<center>
+<h1> Liste des matchs disponible </h1>
+
+<div class="grid simple">
+    
+<div class="grid-title no-border">
+   <!-- ce div contient 2 bouton (cacher et reduire)
+   <div class="tools"> 
+        <a href="javascript:;" class="collapse"></a>  
+        <a href="javascript:;" class="remove"></a>
+    </div> 
+   -->
+</div>
+ 
+<div class="grid-body no-border">
+ 
+<div class="grid simple ">
+   <table class="table table-striped" id="example2" >
+                <thead>
+                  <tr>
+                     <th>Joueur 1</th>
+                    <th>Joueur 2</th>
+                    <th>Date du match</th>
+                  </tr>
+                </thead>
+                {% set i = 0 %}
+    {% for Match in Matchs %}
+                <tbody>
+                    <tr class="odd gradeX">
+                    <td>{{joueurs1[i].nom}}</td>
+                    <td>{{joueurs2[i].nom}}</td>
+                    <td>{{Match.datematch|date('Y/m/d')}} </td>
+                    
+                      
+                    </td>
+                      </tr>
+                </tbody>
+                {% set i = i + 1 %}
+    {% endfor %} 
+    </table>
+</div>    		
+</div>
+</div>
+  
+</center>
+ {% endblock %}

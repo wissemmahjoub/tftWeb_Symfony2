@@ -5,7 +5,10 @@
         
 <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
 <meta charset="utf-8" />
-<title>TFT -BackOffice</title>
+
+          {% block titre %}
+              
+          {% endblock %}
  <style>
       html, body {
         height: 100%;
@@ -506,6 +509,7 @@
 <script src="{{ asset('backEnd/assets/js/core.js') }}" type="text/javascript"></script>
 <script src="{{ asset('backEnd/assets/js/demo.js') }}" type="text/javascript"></script>
 <script src="{{ asset('backEnd/assets/js/notifications.js') }}" type="text/javascript"></script>
-
+{% block js %}
+{% endblock %}
 </body>
 </html>

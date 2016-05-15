@@ -1,0 +1,288 @@
+
+{% extends "wyshybackNavBundle::Layout.html.twig" %}
+
+
+{% block menu %}
+    <li class=""> <a href="widgets.html"> <i class="fa fa-th"></i> <span class="title">Competitions</span> <span class="arrow "></span></a> 
+        <ul class="sub-menu">
+            <li > <a href="{{path('wyshyback_nav_AfficherComp')}}"> Lise des competitions </a> </li>
+            <li > <a href="{{path('wyshyback_nav_AjouterComp')}}">Ajouter une nouvelle</a> </li>
+        </ul>
+
+    </li>
+    <li class=""> <a href="widgets.html"> <i class="fa fa-th"></i> <span class="title">Matchs</span> <span class="arrow "></span></a> 
+        <ul class="sub-menu">
+            <li > <a href="{{path('wyshyback_nav_AfficherComp')}}"> Lise des competitions </a> </li>
+            <li > <a href="{{path('wyshyback_nav_AjouterComp')}}">Ajouter une nouvelle</a> </li>
+        </ul>
+
+    </li>
+    <li class=""> <a href="widgets.html"> <i class="fa fa-th"></i> <span class="title">Menu 2</span> <span class="arrow "></span></a> 
+        <ul class="sub-menu">
+            <li > <a href="{{path('wyshyback_nav_AfficherComp')}}"> Lise des competitions </a> </li>
+            <li > <a href="{{path('wyshyback_nav_AjouterComp')}}">Ajouter une nouvelle</a> </li>
+        </ul>
+
+    </li>
+{% endblock %}
+
+{% block content %}
+
+
+    <div class="col-md-12">
+        <div class="grid simple">
+            <div class="grid-title no-border">
+                <h4>Gestion de<span class="semi-bold"> Competitions</span></h4>
+                <div class="tools"> <a href="javascript:;" class="collapse"></a> <a href="#grid-config" data-toggle="modal" class="config"></a> <a href="javascript:;" class="reload"></a> <a href="javascript:;" class="remove"></a> </div>
+            </div>
+            <div class="grid-body no-border">
+                <form method="POST">
+
+                    <div class="form-group">
+                        <label class="form-label">Libelle</label>
+                        <span class="help">e.g. "Rolland Garros"</span>
+                        <div class="input-with-icon  right">                                       
+                            <i class=""></i>
+                            <!-- <input type="text" name="form1Amount" id="form1Amount" class="form-control">  -->
+                            {{ form_widget(form.libelle) }}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Nombre de points</label>
+                        <span class="help">e.g. "63"</span>
+                        <div class="input-with-icon  right">                                       
+                            <i class=""></i>
+                            <!-- <input type="text" name="form1CardHolderName" id="form1CardHolderName" class="form-control">  -->
+                            {{ form_widget(form.nbrpoints) }}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Date Debut</label>z
+                        <span class="help">e.g. "01/01/2000"</span>
+
+                        <!-- <input style="" type="text" class="form-control" id="sandbox-advance"> -->
+                        {{ form_widget(form.datedebut) }}
+
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Date Fin</label>
+                        <span class="help">e.g. "02/02/2000"</span>
+
+                        <!-- <input style="" type="text" class="form-control" id="sandbox-advance"> -->
+                        {{ form_widget(form.datefin) }}
+
+
+                    </div>
+                    </br>
+                    <div class="form-group">
+
+
+
+                        <div class="row form-row">
+                            <div class="col-md-4">
+
+                                <label class="form-label">Niveau</label>
+                                <i class=""></i>
+                                {{ form_widget(form.niveau) }}
+                            </div>
+                            <div class="col-md-4">
+
+                                <label class="form-label">Categorie</label>
+                                <i class=""></i>
+                                {{ form_widget(form.categorie) }}
+
+                                {{ form_widget(form.joueurs) }}
+                            </div>
+
+
+                            <div class="col-md-4">      
+
+
+
+                                <label class="form-label">Type</label>
+                                <i class=""></i>
+
+                                {{ form_widget(form.type) }}
+                            </div>
+
+                        </div>
+                        
+                    </div> 
+                    </br>
+                        </br></br></br>
+                        <div class="form-group">
+                    <label class="form-label">Liste des Joueurs</label>
+                    <i class=""></i>
+                    
+                    <table class="table table-bordered no-more-tables">
+                        <thead>
+                            <tr class="">
+                                <th style="width:1%">
+                        <div class="checkbox check-default">
+                            <input id="checkbox20" value="1" class="checkall" type="checkbox">
+                            <label for="checkbox20"></label>
+                        </div>
+                        </th>
+                        <th class="text-center" style="width:12%">Nom et prenom</th>
+                        <th class="text-center" style="width:6%">Age</th>
+                        <th class="text-center" style="width:6%">Experience</th>
+                        <th class="text-center" style="width:10%">Avatar</th>
+                        <th class="text-center" style="width:6%">Niveau</th>
+
+                        </tr>
+                        </thead>
+                        <tbody>
+                            {% for joueur in joueurs %}
+                                    {% if joueur.nom != "aux" %}
+                                <tr class="">
+                                    <td>
+                                        <div class="checkbox check-default">
+                                            <input onclick="tito('checkbox{{joueur.idpersonne}}')" id="checkbox{{joueur.idpersonne}}" value="{{joueur.idpersonne}}" type="checkbox">
+
+
+                                            <label for="checkbox{{joueur.idpersonne}}"></label>
+                                        </div>
+                                    </td>
+                                    <td class="text-center">{{joueur.nom}} {{joueur.prenom}}</td>
+                                    <td class="text-center">29</td>
+                                    <td class="text-center">{{joueur.experience}}</td>
+                                    <td class="text-center">	
+                                        <img src="{{ asset(joueur.avatar) }}"  alt="" data-src="{{ asset(joueur.avatar) }}" data-src-retina="{{ asset(joueur.avatar) }}" width="69" height="69" /> 
+
+                                    </td>
+                                    <td class="text-center">
+                                        {% if joueur.niveau == 'International' %}
+                                            <span class="label label-success">{{joueur.niveau}}</span>
+                                        {% else %}
+                                            <span class="label label-important">{{joueur.niveau}}</span>
+                                        {% endif %}
+
+                                    </td>
+                                </tr>
+
+
+
+                                {% endif %}
+                            {% endfor %} 
+                        </tbody>
+                    </table>
+
+                        </div>
+                    <div class="form-actions"> 
+                        {{ form_rest(form) }}
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>  
+                        <script src="{{ asset('backEnd/assets/plugins/jquery-1.8.3.min.js') }}" type="text/javascript"></script>
+                        <script type="text/javascript">
+                     
+             jQuery(document).ready(function(){
+                 
+                        $("#form_datedebut_year").change(function(){
+                              var select = document.getElementById("form_datedebut_year");
+                            var select2 = document.getElementById("form_datefin_year");
+                            var select3 = document.getElementById("form_datedebut_month");
+                            var select4 = document.getElementById("form_datefin_month");
+                            if ( select.options[select.selectedIndex].value > select2.options[select2.selectedIndex].value && select3.options[select3.selectedIndex].value > select4.options[select4.selectedIndex].value ) 
+                             {
+                                $("#form_Suivant").prop('disabled', true);
+                                 alert("Date invalide !");
+                            }else
+                            {
+                                $("#form_Suivant").prop('disabled', false);
+                            }
+                          
+                           
+                        });
+                           $("#form_datefin_year").change(function(){
+                            
+                            var select = document.getElementById("form_datedebut_year");
+                            var select2 = document.getElementById("form_datefin_year");
+                            var select3 = document.getElementById("form_datedebut_month");
+                            var select4 = document.getElementById("form_datefin_month");
+                            if ( select.options[select.selectedIndex].value > select2.options[select2.selectedIndex].value && select3.options[select3.selectedIndex].value > select4.options[select4.selectedIndex].value) 
+                            {
+                                $("#form_Suivant").prop('disabled', true);
+                                 alert("Date invalide !");
+                            }else
+                            {
+                                $("#form_Suivant").prop('disabled', false);
+                            }
+                          
+                           
+                        });
+                             $("#form_datedebut_month").change(function(){
+                              var select = document.getElementById("form_datedebut_year");
+                            var select2 = document.getElementById("form_datefin_year");
+                            var select3 = document.getElementById("form_datedebut_month");
+                            var select4 = document.getElementById("form_datefin_month");
+                            if ( select.options[select.selectedIndex].value > select2.options[select2.selectedIndex].value && select3.options[select3.selectedIndex].value > select4.options[select4.selectedIndex].value) 
+                             {
+                                $("#form_Suivant").prop('disabled', true);
+                                 alert("Date invalide !");
+                            }else
+                            {
+                                $("#form_Suivant").prop('disabled', false);
+                            }
+                          
+                           
+                        });
+
+
+                         $("#form_datefin_month").change(function(){
+                             var select = document.getElementById("form_datedebut_year");
+                            var select2 = document.getElementById("form_datefin_year");
+                            var select3 = document.getElementById("form_datedebut_month");
+                            var select4 = document.getElementById("form_datefin_month");
+                            if ( select.options[select.selectedIndex].value > select2.options[select2.selectedIndex].value && select3.options[select3.selectedIndex].value > select4.options[select4.selectedIndex].value) 
+                              {
+                                $("#form_Suivant").prop('disabled', true);
+                                alert("Date invalide !");
+                            }else
+                            {
+                                $("#form_Suivant").prop('disabled', false);
+                            }
+                          
+                           
+                        });
+       });
+                  
+               
+                
+                            </script>
+
+{% endblock %}
+
+{% block userInfo %}
+    Personne 1
+{% endblock %}
+
+{% block js %}
+    
+    <script>
+        
+                
+        function tito(test)
+        {
+            
+            
+            var ts = test.substring(8,test.length);
+           if (document.getElementById(test).checked)
+           {
+               $("#form_joueurs_"+ts).attr('checked',true);
+               
+           }else
+           {
+               $("#form_joueurs_"+ts).attr('checked',false);
+           }
+
+            
+
+        }
+   
+
+    </script>
+{% endblock %}

@@ -76,20 +76,218 @@ class Competition
      * @ORM\Column(name="datedestruction", type="date", nullable=true)
      */
     private $datedestruction;
-
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     *
-     * @ORM\ManyToMany(targetEntity="Personne", mappedBy="idcompetition")
-     */
-    private $idjoueur;
-
-    /**
-     * Constructor
-     */
-    public function __construct()
+    
+    
+        
+        
+    public $joueurs;
+    public $nbrmatch;
+    public function setNbrmatch($nbrmatch)
     {
-        $this->idjoueur = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->nbrmatch = $nbrmatch;
+    }
+    public function getNbrmatch()
+    {
+        return $this->nbrmatch;
+    }
+    public function __construct() {
+       $this->idjoueurs = new \Doctrine\Common\Collections\ArrayCollection();;
+    }
+    public function addIdjoueur($idjoueur)
+    {
+        $this->idjoueurs->add($idjoueur);
+    }
+    /**
+     * Get idcompetition
+     *
+     * @return integer 
+     */
+    public function getIdcompetition()
+    {
+        return $this->idcompetition;
     }
 
+    /**
+     * Set libelle
+     *
+     * @param string $libelle
+     * @return Competition
+     */
+    public function setLibelle($libelle)
+    {
+        $this->libelle = $libelle;
+
+        return $this;
+    }
+     
+    /**
+     * Get libelle
+     *
+     * @return string 
+     */
+    public function getLibelle()
+    {
+        return $this->libelle;
+    }
+
+    /**
+     * Set datedebut
+     *
+     * @param \DateTime $datedebut
+     * @return Competition
+     */
+    public function setDatedebut($datedebut)
+    {
+        $this->datedebut = $datedebut;
+
+        return $this;
+    }
+
+    /**
+     * Get datedebut
+     *
+     * @return \DateTime 
+     */
+    public function getDatedebut()
+    {
+        return $this->datedebut;
+    }
+
+    /**
+     * Set datefin
+     *
+     * @param \DateTime $datefin
+     * @return Competition
+     */
+    public function setDatefin($datefin)
+    {
+        $this->datefin = $datefin;
+
+        return $this;
+    }
+
+    /**
+     * Get datefin
+     *
+     * @return \DateTime 
+     */
+    public function getDatefin()
+    {
+        return $this->datefin;
+    }
+
+    /**
+     * Set niveau
+     *
+     * @param string $niveau
+     * @return Competition
+     */
+    public function setNiveau($niveau)
+    {
+        $this->niveau = $niveau;
+
+        return $this;
+    }
+
+    /**
+     * Get niveau
+     *
+     * @return string 
+     */
+    public function getNiveau()
+    {
+        return $this->niveau;
+    }
+
+    /**
+     * Set categorie
+     *
+     * @param string $categorie
+     * @return Competition
+     */
+    public function setCategorie($categorie)
+    {
+        $this->categorie = $categorie;
+
+        return $this;
+    }
+
+    /**
+     * Get categorie
+     *
+     * @return string 
+     */
+    public function getCategorie()
+    {
+        return $this->categorie;
+    }
+
+    /**
+     * Set type
+     *
+     * @param string $type
+     * @return Competition
+     */
+    public function setType($type)
+    {
+        $this->type = $type;
+
+        return $this;
+    }
+
+    /**
+     * Get type
+     *
+     * @return string 
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
+
+    /**
+     * Set nbrpoints
+     *
+     * @param integer $nbrpoints
+     * @return Competition
+     */
+    public function setNbrpoints($nbrpoints)
+    {
+        $this->nbrpoints = $nbrpoints;
+
+        return $this;
+    }
+
+    /**
+     * Get nbrpoints
+     *
+     * @return integer 
+     */
+    public function getNbrpoints()
+    {
+        return $this->nbrpoints;
+    }
+
+    /**
+     * Set datedestruction
+     *
+     * @param \DateTime $datedestruction
+     * @return Competition
+     */
+    public function setDatedestruction($datedestruction)
+    {
+        $this->datedestruction = $datedestruction;
+
+        return $this;
+    }
+
+    /**
+     * Get datedestruction
+     *
+     * @return \DateTime 
+     */
+    public function getDatedestruction()
+    {
+        return $this->datedestruction;
+    }
 }

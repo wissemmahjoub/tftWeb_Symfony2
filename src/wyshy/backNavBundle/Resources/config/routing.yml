@@ -248,4 +248,42 @@ tft_Mail:
 
 #    -----------------------------------------------------------------    
 
+wyshyback_nav_matchs:
+    path:     /match/{idcompetition}
+    defaults: { _controller: wyshybackNavBundle:Match:ajouterMatchCom }
     
+wyshyback_nav_AjouterComp:
+    path:     /ajoutercomp
+    defaults: { _controller: wyshybackNavBundle:Competition:index }
+    
+wyshyback_nav_AfficherComp:
+    path:     /listComp
+    defaults: { _controller: wyshybackNavBundle:Competition:afficheCompetition }
+    
+wyshyback_nav_DeleteComp:
+    path:     /deletecompetition/{idcompetition}
+    defaults: { _controller: wyshybackNavBundle:Competition:deleteCompetition }
+    
+wyshyback_nav_test:
+    path:     /nbr
+    defaults: { _controller: wyshybackNavBundle:Competition:nbJoueur }
+    
+wyshyback_nav_gumble:
+    path:     /gumble
+    defaults: { _controller: wyshybackNavBundle:Gumble:parier }
+    
+wyshyback_nav_updateCompeitition:
+    path:     /updatecompetition/{idcompetition}
+    defaults: { _controller: wyshybackNavBundle:Competition:detailCom }
+    
+wyshyback_nav_infoCompetition:
+    path:     /infocompetition/{idcompetition}
+    defaults: { _controller: wyshybackNavBundle:Competition:infoCom }
+    
+wyshyback_nav_finals:
+    path:     /finals/{idcompetition}
+    defaults: { _controller: wyshybackNavBundle:Match:finals }
+    
+wyshyback_nav_score:
+    path:     /score/{idmatch}
+    defaults: { _controller: wyshybackNavBundle:Match:score }
